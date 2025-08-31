@@ -1497,9 +1497,8 @@ class HFLM(LM):
         re_ords = Collator(requests, _collate, grouping=True)
         chunks = re_ords.get_batched(n=batch_size, batch_fn=batch_fn)
         loop_count = 0
-        loop_print = 20
+        loop_print = 1000
         for chunk_data in chunks:
-            loop_count += 1
             # unpack the requests and kwargs for this batch
             chunk, all_gen_kwargs = zip(*chunk_data)
             contexts, _, chunk_ctx_data = zip(*chunk)
@@ -1637,9 +1636,7 @@ class HFLM(LM):
 
                 self.cache_hook.add_partial("generate_until", (context, gen_kwargs), s)
                 pbar.update(1)
-            if loop_count % loop_print == 0:
-                print(f"res: {res}")
-                print("----------end batch results----------")
+            loop_count += 1
         effective_batch_size = sum(batch_sizes)/len(batch_sizes)
         meta["effective_batch_size"] = effective_batch_size
         # reorder this group of results back to original unsorted form
