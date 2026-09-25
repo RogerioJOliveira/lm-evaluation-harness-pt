@@ -1,0 +1,3376 @@
+{
+  "id": "sim_20260925_130847_mimo_v2.6_flash",
+  "model": "mimo-v2.6-flash",
+  "tasks": [
+    "oab_exams"
+  ],
+  "limit": 100,
+  "num_fewshot": 3,
+  "timestamp": "2026-09-25 13:08:50",
+  "duration_seconds": 3.3,
+  "status": "completed",
+  "is_simulation": true,
+  "metrics": {
+    "overall_accuracy": 83.0,
+    "total_samples": 100,
+    "tasks_evaluated": [
+      "oab_exams"
+    ]
+  },
+  "questions": [
+    {
+      "id": "oab_exams_1",
+      "index": 0,
+      "task": "oab_exams",
+      "question": "Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_2",
+      "index": 1,
+      "task": "oab_exams",
+      "question": "Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 23,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_3",
+      "index": 2,
+      "task": "oab_exams",
+      "question": "Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 32,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_4",
+      "index": 3,
+      "task": "oab_exams",
+      "question": "Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 23,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_5",
+      "index": 4,
+      "task": "oab_exams",
+      "question": "O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 22,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_6",
+      "index": 5,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #6] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_7",
+      "index": 6,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #7] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_8",
+      "index": 7,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #8] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_9",
+      "index": 8,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #9] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_10",
+      "index": 9,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #10] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_11",
+      "index": 10,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #11] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_12",
+      "index": 11,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #12] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_13",
+      "index": 12,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #13] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_14",
+      "index": 13,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #14] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_15",
+      "index": 14,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #15] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_16",
+      "index": 15,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #16] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_17",
+      "index": 16,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #17] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_18",
+      "index": 17,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #18] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_19",
+      "index": 18,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #19] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_20",
+      "index": 19,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #20] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_21",
+      "index": 20,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #21] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_22",
+      "index": 21,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #22] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_23",
+      "index": 22,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #23] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_24",
+      "index": 23,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #24] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_25",
+      "index": 24,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #25] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_26",
+      "index": 25,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #26] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_27",
+      "index": 26,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #27] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_28",
+      "index": 27,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #28] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_29",
+      "index": 28,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #29] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_30",
+      "index": 29,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #30] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_31",
+      "index": 30,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #31] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_32",
+      "index": 31,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #32] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_33",
+      "index": 32,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #33] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_34",
+      "index": 33,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #34] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_35",
+      "index": 34,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #35] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_36",
+      "index": 35,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #36] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_37",
+      "index": 36,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #37] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_38",
+      "index": 37,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #38] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_39",
+      "index": 38,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #39] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_40",
+      "index": 39,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #40] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_41",
+      "index": 40,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #41] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_42",
+      "index": 41,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #42] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_43",
+      "index": 42,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #43] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_44",
+      "index": 43,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #44] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_45",
+      "index": 44,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #45] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_46",
+      "index": 45,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #46] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_47",
+      "index": 46,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #47] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_48",
+      "index": 47,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #48] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_49",
+      "index": 48,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #49] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_50",
+      "index": 49,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #50] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_51",
+      "index": 50,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #51] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_52",
+      "index": 51,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #52] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_53",
+      "index": 52,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #53] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_54",
+      "index": 53,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #54] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_55",
+      "index": 54,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #55] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_56",
+      "index": 55,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #56] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_57",
+      "index": 56,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #57] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_58",
+      "index": 57,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #58] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_59",
+      "index": 58,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #59] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_60",
+      "index": 59,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #60] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_61",
+      "index": 60,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #61] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_62",
+      "index": 61,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #62] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_63",
+      "index": 62,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #63] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_64",
+      "index": 63,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #64] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_65",
+      "index": 64,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #65] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_66",
+      "index": 65,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #66] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_67",
+      "index": 66,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #67] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_68",
+      "index": 67,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #68] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_69",
+      "index": 68,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #69] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_70",
+      "index": 69,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #70] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_71",
+      "index": 70,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #71] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_72",
+      "index": 71,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #72] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_73",
+      "index": 72,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #73] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_74",
+      "index": 73,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #74] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_75",
+      "index": 74,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #75] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_76",
+      "index": 75,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #76] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_77",
+      "index": 76,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #77] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_78",
+      "index": 77,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #78] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_79",
+      "index": 78,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #79] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_80",
+      "index": 79,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #80] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_81",
+      "index": 80,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #81] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_82",
+      "index": 81,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #82] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_83",
+      "index": 82,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #83] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_84",
+      "index": 83,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #84] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_85",
+      "index": 84,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #85] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_86",
+      "index": 85,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #86] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_87",
+      "index": 86,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #87] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_88",
+      "index": 87,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #88] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_89",
+      "index": 88,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #89] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_90",
+      "index": 89,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #90] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_91",
+      "index": 90,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #91] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_92",
+      "index": 91,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #92] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_93",
+      "index": 92,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #93] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_94",
+      "index": 93,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #94] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_95",
+      "index": 94,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #95] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "oab_exams_96",
+      "index": 95,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #96] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_97",
+      "index": 96,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #97] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_98",
+      "index": 97,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #98] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "oab_exams_99",
+      "index": 98,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #99] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "oab_exams_100",
+      "index": 99,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #100] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 100,
+      "correct": 83,
+      "wrong": 17,
+      "accuracy": 83.0
+    },
+    "categories": [
+      {
+        "category": "Ética Profissional OAB",
+        "total": 20,
+        "correct": 16,
+        "wrong": 4,
+        "accuracy": 80.0
+      },
+      {
+        "category": "Direito Civil & Processo Civil",
+        "total": 20,
+        "correct": 16,
+        "wrong": 4,
+        "accuracy": 80.0
+      },
+      {
+        "category": "Direito Constitucional & Teoria do Estado",
+        "total": 20,
+        "correct": 17,
+        "wrong": 3,
+        "accuracy": 85.0
+      },
+      {
+        "category": "Direito Penal & Processo Penal",
+        "total": 20,
+        "correct": 17,
+        "wrong": 3,
+        "accuracy": 85.0
+      },
+      {
+        "category": "Direito Administrativo",
+        "total": 20,
+        "correct": 17,
+        "wrong": 3,
+        "accuracy": 85.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Adoção de Raciocínio Passo a Passo (Chain-of-Thought)",
+        "description": "Atualmente o modelo responde diretamente a letra da alternativa. Para problemas que exigem dedução em múltiplos passos, o raciocínio explícito reduz erros dedutivos.",
+        "recommendation": "Altere o formato de resposta para solicitar uma breve justificativa em 2 linhas antes de indicar a letra final no formato 'Resposta: [LETRA]'."
+      }
+    ]
+  }
+}
