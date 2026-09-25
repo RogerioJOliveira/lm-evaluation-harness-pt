@@ -1,237 +1,264 @@
-# Language Model Evaluation Harness for Portuguese LLMs
+# Language Model Evaluation Harness para LLMs em Português
 
+**Um framework para avaliação de Modelos de Linguagem de Larga Escala (LLMs) em Português**
 
-**A framework for evaluating Large Language Models (LLMs) in Portuguese**
+Este repositório é um fork do [LM Evaluation Harness da EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness), adaptado especificamente para a avaliação de modelos de linguagem na língua portuguesa. 📐 Ele serve como a suíte de avaliação oficial do 🚀 [Open Portuguese LLM Leaderboard](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard), cujo objetivo é rastrear, classificar e avaliar LLMs abertos e chatbots focados no idioma português.
 
-This repository is a fork of [EleutherAI's LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness), adapted specifically for evaluating language models in Portuguese. 📐 It serves as the evaluation suite for the 🚀 [Open Portuguese LLM Leaderboard](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard), which aims to track, rank, and evaluate open LLMs and chatbots tailored for the Portuguese language.
+Envie um modelo para avaliação automatizada no cluster de GPUs do Hugging Face através da página de ["Submissão"](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard?tab=submit) no leaderboard!
 
-Submit a model for automated evaluation on the Hugging Face GPU cluster via the ["Submit" page](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard?tab=submit) on the leaderboard!
+> 📘 **Guia Completo em Português**: Consulte o [**GUIA_DE_USO.md**](GUIA_DE_USO.md) para instruções detalhadas de instalação, configuração do `.env`, uso com APIs (incluindo Xiaomi MIMO) e execução dos testes.
 
-## About the Leaderboard
+---
 
-The 🚀 Open Portuguese LLM Leaderboard aims to provide a comprehensive benchmark for evaluating Large Language Models (LLMs) in the Portuguese language across a variety of tasks and datasets. The leaderboard:
+## Sobre o Leaderboard
 
-- Is open to submissions from the community
-- Serves as a resource for researchers, practitioners, and enthusiasts 
-- Includes tasks covering multiple aspects of language understanding and generation
+O 🚀 **Open Portuguese LLM Leaderboard** visa fornecer um benchmark abrangente para avaliar Modelos de Linguagem de Larga Escala (LLMs) em português através de uma variedade de tarefas e conjuntos de dados. O leaderboard:
 
-This leaderboard is made possible by the support of the [Center of Excellence in AI (CEIA)](https://ceia.ufg.br/) at the [Federal University of Goiás (UFG)](https://international.ufg.br/).
+- É aberto a submissões da comunidade;
+- Serve como recurso para pesquisadores, profissionais e entusiastas;
+- Inclui tarefas cobrindo múltiplos aspectos de compreensão e geração de linguagem natural.
 
-## Portuguese-Specific Features
+Este leaderboard é viabilizado com o apoio do [Centro de Excelência em Inteligência Artificial (CEIA)](https://ceia.ufg.br/) da [Universidade Federal de Goiás (UFG)](https://international.ufg.br/).
 
-This fork includes several modifications tailored for Portuguese language evaluation:
+---
 
-- **Portuguese Task Suite**: A collection of NLP tasks designed for the Portuguese language (see list below).
-- **Direct Response Evaluation**: Works with models' direct text responses rather than just log probabilities, suitable for evaluating instruction-tuned models and chatbots.
-- **Chat Template Support**: Added compatibility with LLMs using various chat templates from the transformers libary. Automatically detects and applies the appropriate chat template format (system-user-assistant, user-assistant, or assistant-user) without requiring manual configuration. This ensures accurate evaluation of chat-optimized models with their native prompt formats.
-- **Multi-Backend Support**: 
-  - **vLLM Integration**: Accelerated inference with batch evaluation for faster processing of large models.
-  - **LiteLLM Support**: Evaluation of closed-source models via APIs (including OpenAI, Google's Vertex AI/Gemini, etc.).
-- **Memory Optimization**: 
-  - Automatic batch size detection and adjustment based on available GPU memory.
-  - Dynamic max_length adjustment for efficient resource utilization.
-  - Starting_max_length option for better GPU memory management.
-- **Evaluation Enhancements**:
-  - Added new metrics calculations (F1-macro, Pearson) to be aligned with the selected tasks original benchmark metric.
-  - Reasoning extraction for models that provide explanations before answers (e.g., DeepSeek models).
-  - Temperature control (set to 0) for API models to ensure deterministic outputs.
-- **Custom Filters**: Special text processing pipelines adapted for Portuguese tasks characteristics.
-- **UTF-8 Support**: Proper encoding for Portuguese text with accents and special characters in both inputs and outputs.
-- **Few-shot ID Sampling**: Preserves order of few-shot examples for consistent evaluation.
-- **Better integration with Huggingface Datasets API**
+## Recursos Específicos para Português
 
-## Portuguese Evaluation Tasks
+Este fork inclui diversas modificações customizadas para a avaliação em língua portuguesa:
 
-The evaluation suite includes a diverse set of tasks covering different capabilities. The evaluations primarily use few-shot examples (typically 3 to 25, depending on the task) to assess model performance in context.
+- **Suíte de Tarefas em Português**: Uma coleção de tarefas de PLN desenvolvidas para a língua portuguesa (veja a lista abaixo).
+- **Avaliação de Respostas Diretas**: Funciona com respostas em texto direto geradas pelos modelos, em vez de apenas probabilidades de log (*logprobs*), ideal para avaliar modelos instruídos (*instruction-tuned*) e chatbots.
+- **Suporte a Chat Templates**: Compatibilidade integrada com LLMs que utilizam diferentes modelos de conversa (*chat templates*) da biblioteca `transformers`. Detecta e aplica automaticamente o formato adequado (`system-user-assistant`, `user-assistant` ou `assistant-user`) sem necessidade de configuração manual. Isso garante uma avaliação precisa de modelos otimizados para diálogo em seus formatos de prompt nativos.
+- **Suporte a Múltiplos Backends**: 
+  - **Integração com vLLM**: Inferência acelerada com avaliação em lote para processamento mais rápido de modelos grandes.
+  - **Suporte a APIs (OpenAI / Xiaomi MIMO / LiteLLM)**: Avaliação de modelos proprietários e remotos via API.
+- **Otimização de Memória**: 
+  - Detecção e ajuste automático do tamanho do lote (*batch size*) com base na memória de GPU disponível.
+  - Ajuste dinâmico de `max_length` para uso eficiente dos recursos.
+  - Opção `starting_max_length` para melhor gerenciamento de memória na GPU.
+- **Melhorias de Avaliação**:
+  - Novas métricas calculadas (F1-Macro, Pearson) alinhadas aos benchmarks originais das tarefas selecionadas.
+  - Extração de raciocínio (*reasoning*) para modelos que fornecem explicações antes da resposta (ex.: modelos DeepSeek).
+  - Controle de temperatura (fixado em 0) para modelos de API garantindo saídas determinísticas.
+- **Filtros Customizados**: Pipelines de processamento de texto adaptados às características específicas das tarefas em português.
+- **Suporte a UTF-8**: Codificação adequada para textos em português com acentuação e caracteres especiais tanto na entrada quanto na saída.
+- **Amostragem de IDs Few-shot**: Preserva a ordem dos exemplos *few-shot* para consistência nas avaliações.
+- **Melhor Integração com a API do Hugging Face Datasets**.
 
-| Task Alias      | Description                                           | Few-shot | Main Metric | Baseline | Link/Source                                                                 |
-|-----------------|-------------------------------------------------------|----------|-------------|----------|-----------------------------------------------------------------------------|
-| **assin2_rte**  | Recognizing Textual Entailment (ASSIN 2)              | 15       | F1 Macro    | 50.0     | [ASSIN 2](https://sites.google.com/view/assin2/)                            |
-| **assin2_sts**  | Semantic Textual Similarity (ASSIN 2)                 | 15       | Pearson     | 0.0      | [ASSIN 2](https://sites.google.com/view/assin2/)                            |
-| **bluex**       | Reading Comprehension (BlueX)                         | 5        | F1 Macro    | 33.3     | [BlueX Dataset](https://github.com/portuguese-benchmark-datasets/bluex)                           |
-| **enem**        | Multiple Choice Questions (ENEM Exam)                 | 3        | Accuracy    | 20.0     | [ENEM Challenge](https://www.ime.usp.br/~ddm/project/enem/) |
-| **faquad_nli**  | Natural Language Inference (FaQuAD-NLI)               | 5        | F1 Macro    | 33.3     | [FaQuAD-NLI](https://huggingface.co/datasets/ruanchaves/faquad-nli)           |
-| **hatebr**      | Offensive Language Detection (HateBR)                 | 25       | F1 Macro    | 50.0     | [HateBR Dataset](https://github.com/franciellevargas/HateBR)                   |
-| **hate_speech** | Hate Speech Identification (Portuguese Hate Speech)   | 25       | F1 Macro    | 47.9     | [Portuguese Hate Speech](https://github.com/paulafortuna/Portuguese-Hate-Speech-Dataset) |
-| **tweetsentbr** | Sentiment Analysis (TweetSentBR)                      | 25       | F1 Macro    | 32.8     | [TweetSentBR](https://bitbucket.org/HBrum/tweetsentbr)                      |
-| **oab_exams**   | Brazilian Bar Exam Questions                          | 3        | Accuracy    | 20.0     | [OAB Exams](https://github.com/legal-nlp/oab-exams)           |
+---
 
-Task descriptions:
+## Tarefas de Avaliação em Português
 
-- **assin2_rte**: A dataset for Recognizing Textual Entailment in Portuguese, part of the ASSIN 2 shared task.
-- **assin2_sts**: A dataset for Semantic Textual Similarity in Portuguese, assessing model ability to determine semantic equivalence between sentences.
-- **bluex**: A reading comprehension dataset for Portuguese, testing the ability to understand and extract information from texts.
-- **enem**: Questions from the Brazilian High School National Exam (ENEM), covering various subjects in multiple-choice format.
-- **faquad_nli**: A Natural Language Inference dataset derived from the FaQuAD question-answering dataset for Portuguese.
-- **hatebr**: A dataset of Brazilian Instagram comments annotated for offensive language and hate speech detection.
-- **hate_speech**: A hierarchically labeled Portuguese hate speech dataset composed of tweets with binary annotations.
-- **tweetsentbr**: A corpus of tweets in Brazilian Portuguese annotated for sentiment analysis in three classes (Positive, Negative, Neutral).
-- **oab_exams**: Multiple-choice questions from the Brazilian Bar Exam, testing legal knowledge and reasoning.
+A suíte inclui um conjunto diversificado de tarefas cobrindo diferentes capacidades. As avaliações utilizam primariamente exemplos no contexto (*few-shot*, tipicamente de 3 a 25 dependendo da tarefa) para avaliar a performance do modelo.
 
-*Note: Baseline scores represent the default performance expectation (e.g., random guessing for classification tasks). Few-shot counts might vary slightly based on configuration.*
+| Alias da Tarefa | Descrição | Few-shot | Métrica Principal | Linha de Base (Baseline) | Link / Fonte |
+|:---|:---|:---:|:---:|:---:|:---|
+| **`assin2_rte`** | Reconhecimento de Implicação Textual (ASSIN 2) | 15 | F1 Macro | 50.0 | [ASSIN 2](https://sites.google.com/view/assin2/) |
+| **`assin2_sts`** | Similaridade Textual Semântica (ASSIN 2) | 15 | Pearson | 0.0 | [ASSIN 2](https://sites.google.com/view/assin2/) |
+| **`bluex`** | Interpretação de Texto e Vestibulares (BlueX) | 5 | F1 Macro | 33.3 | [BlueX Dataset](https://github.com/portuguese-benchmark-datasets/bluex) |
+| **`enem`** | Questões de Múltipla Escolha (Exame ENEM) | 3 | Acurácia | 20.0 | [ENEM Challenge](https://www.ime.usp.br/~ddm/project/enem/) |
+| **`faquad_nli`** | Inferência em Linguagem Natural (FaQuAD-NLI) | 5 | F1 Macro | 33.3 | [FaQuAD-NLI](https://huggingface.co/datasets/ruanchaves/faquad-nli) |
+| **`hatebr`** | Detecção de Linguagem Ofensiva (HateBR) | 25 | F1 Macro | 50.0 | [HateBR Dataset](https://github.com/franciellevargas/HateBR) |
+| **`hate_speech`** | Identificação de Discurso de Ódio (Portuguese Hate Speech) | 25 | F1 Macro | 47.9 | [Portuguese Hate Speech](https://github.com/paulafortuna/Portuguese-Hate-Speech-Dataset) |
+| **`tweetsentbr`** | Análise de Sentimento (TweetSentBR) | 25 | F1 Macro | 32.8 | [TweetSentBR](https://bitbucket.org/HBrum/tweetsentbr) |
+| **`oab_exams`** | Questões do Exame de Ordem dos Advogados (OAB) | 3 | Acurácia | 20.0 | [OAB Exams](https://github.com/legal-nlp/oab-exams) |
 
-The prompts and few-shots items used for each task can be found on it's YAML configuration file on [lm_eval/tasks/portuguese](lm_eval/tasks/portuguese)
+### Descrição detalhada das tarefas:
 
-## Getting Started
+- **`assin2_rte`**: Conjunto de dados para Reconhecimento de Implicação Textual em português, parte da tarefa compartilhada do ASSIN 2.
+- **`assin2_sts`**: Conjunto de dados para Similaridade Textual Semântica em português, avaliando a capacidade do modelo de mensurar equivalência de sentido entre frases.
+- **`bluex`**: Dataset de interpretação de texto e vestibulares brasileiros (USP, Unicamp), testando a capacidade de compreensão e extração de informações complexas.
+- **`enem`**: Questões do Exame Nacional do Ensino Médio (ENEM), cobrindo diversas áreas do conhecimento em formato de múltipla escolha.
+- **`faquad_nli`**: Dataset de inferência derivado do conjunto de perguntas e respostas FaQuAD.
+- **`hatebr`**: Comentários de usuários do Instagram brasileiro anotados por especialistas para detecção de linguagem ofensiva e discurso de ódio.
+- **`hate_speech`**: Dataset rotulado hierarquicamente composto por tweets em português com anotações binárias sobre discurso de ódio.
+- **`tweetsentbr`**: Corpus de tweets em português brasileiro anotados para análise de sentimentos em três classes (Positivo, Negativo, Neutro).
+- **`oab_exams`**: Questões de múltipla escolha dos Exames de Ordem da OAB, avaliando conhecimento jurídico e interpretação legal.
 
-### Installation
+*Nota: As pontuações de linha de base (baseline) representam a expectativa de desempenho padrão (ex.: escolha aleatória em tarefas de classificação). O número de exemplos few-shot pode variar ligeiramente de acordo com a configuração.*
+
+Os prompts e exemplos few-shot utilizados por cada tarefa podem ser consultados nos arquivos de configuração YAML em [`lm_eval/tasks/portuguese`](lm_eval/tasks/portuguese).
+
+---
+
+## Primeiros Passos
+
+### Instalação
 
 ```bash
 git clone https://github.com/eduagarcia/lm-evaluation-harness-pt
 cd lm-evaluation-harness-pt
 pip install -e .
 
-# For extended functionality (faster inference with vLLM, API access, etc.)
+# Para funcionalidades estendidas (APIs como OpenAI e MIMO, vLLM, etc.)
 pip install -e ".[vllm,anthropic,openai,sentencepiece]"
 ```
 
-### Basic Usage
+---
 
-To evaluate a Portuguese LLM with the complete Open PT LLM Leaderboard benchmark:
+### Uso Básico
+
+Para avaliar um LLM em português com todo o benchmark do Open PT LLM Leaderboard:
 
 ```bash
 lm_eval \
     --model huggingface \
-    --model_args "pretrained=YOUR_MODEL_ID,revision=main" \
+    --model_args "pretrained=SEU_MODELO_ID,revision=main" \
     --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
     --device cuda:0 \
     --output_path "./"
 ```
 
-You can also evaluate individual tasks:
+Você também pode avaliar tarefas individuais:
 
 ```bash
-# For base models
+# Para modelos base
 lm_eval --model hf \
-    --model_args pretrained=YOUR_MODEL_ID,trust_remote_code=True \
+    --model_args pretrained=SEU_MODELO_ID,trust_remote_code=True \
     --tasks assin2_rte,tweetsentbr \
     --device cuda:0 \
     --batch_size auto \
-    --output_path results/YOUR_MODEL_ID
+    --output_path results/SEU_MODELO_ID
 ```
 
-Chat Template - The libary automatically detects and applies chat templates when they exist in the model's tokenizer config. If you need to disable chat template:
+#### Templates de Chat (Chat Template)
+A biblioteca detecta e aplica automaticamente os chat templates existentes na configuração do tokenizer do modelo. Se você precisar desativar essa detecção:
 
 ```bash
-# It tests different chat formats (system-user-assistant, user-assistant, assistant-user) 
-# and uses the one that works with your model.
-# Disable chat template detection
+# Testa formatos de chat (system-user-assistant, user-assistant, etc.)
+# e usa o compatível com o modelo.
+# Para desativar a aplicação do template:
 lm_eval --model hf \
-    --model_args pretrained=YOUR_MODEL_ID,trust_remote_code=True,apply_chat_template=False \
+    --model_args pretrained=SEU_MODELO_ID,trust_remote_code=True,apply_chat_template=False \
     --tasks assin2_rte,tweetsentbr \
     --device cuda:0 \
     --batch_size auto \
-    --output_path results/YOUR_MODEL_ID
+    --output_path results/SEU_MODELO_ID
 ```
 
-*Set `batch_size` to `auto` for automatic batch size detection or specify an integer value.*
+*Defina `batch_size` como `auto` para detecção automática do tamanho de lote suportado ou especifique um número inteiro.*
 
-### Memory Optimization
+---
 
-Choose the optimization technique that best fits your hardware constraints:
+### Otimização de Memória
 
-#### Automatic Batch Size
+Escolha a técnica que melhor se adapta às restrições do seu hardware:
+
+#### 1. Tamanho de Lote Automático (Auto Batch Size)
 ```bash
-# Auto-detect the largest possible batch size for your GPU
+# Detecta automaticamente o maior batch size suportado pela sua GPU
 lm_eval --model hf \
-    --model_args pretrained=YOUR_MODEL_ID \
+    --model_args pretrained=SEU_MODELO_ID \
     --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
     --device cuda:0 \
     --batch_size auto \
-    --output_path results/YOUR_MODEL_ID
+    --output_path results/SEU_MODELO_ID
 ```
 
-
-#### Starting Max Length
+#### 2. Comprimento Máximo Inicial (Starting Max Length)
 ```bash
 lm_eval --model hf \
-    --model_args pretrained=YOUR_MODEL_ID,starting_max_length=1024 \
+    --model_args pretrained=SEU_MODELO_ID,starting_max_length=1024 \
     --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
     --device cuda:0 \
     --batch_size auto \
-    --output_path results/YOUR_MODEL_ID
+    --output_path results/SEU_MODELO_ID
 ```
 
-#### 4-bit Quantization
+#### 3. Quantização em 4-bit
 ```bash
 lm_eval --model hf \
-    --model_args pretrained=YOUR_MODEL_ID,load_in_4bit=True \
+    --model_args pretrained=SEU_MODELO_ID,load_in_4bit=True \
     --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
     --device cuda:0 \
     --batch_size auto \
-    --output_path results/YOUR_MODEL_ID
+    --output_path results/SEU_MODELO_ID
 ```
 
-### Using API-based Models
+---
 
-For evaluating proprietary models through APIs (e.g., OpenAI):
+### Utilizando Modelos via API
 
+#### Avaliação com OpenAI:
 ```bash
-export OPENAI_API_KEY=YOUR_KEY_HERE
+export OPENAI_API_KEY=SUA_CHAVE_AQUI
 lm_eval --model openai-chat-completions \
     --model_args model=gpt-4-turbo \
     --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
     --output_path results/gpt-4-turbo
 ```
 
-## Submitting to the Leaderboard Manually
+#### Avaliação com Xiaomi MIMO (`mimo-v2.6-flash`):
+Você pode configurar as chaves no arquivo `.env` ou passá-las diretamente:
+```bash
+py -3.12 -m lm_eval --model openai-chat-completions \
+    --model_args model=mimo-v2.6-flash,base_url=https://api.xiaomimimo.com/v1 \
+    --tasks enem_challenge \
+    --limit 10
+```
 
-The [Open Portuguese LLM Leaderboard](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard) offers two methods for submitting models for evaluation:
+---
 
-1. **Automatic Submission**: Submit your model through the leaderboard's ["Submit" page](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard?tab=submit) for evaluation on a available GPU cluster. This is the recommended and simplest approach for most models.
+## Submissão Manual ao Leaderboard
 
-2. **Manual Submission**: For models with special requirements (such as those requiring `trust_remote_code=True`, depending on external libraries beyond transformers, or models without publicly accessible weights), or when automatic submission encounters issues. Detailed instructions for manual submission are provided below.
+O [Open Portuguese LLM Leaderboard](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard) oferece dois métodos para envio de modelos:
 
-For manual submission, please follow these steps:
+1. **Submissão Automática**: Envie seu modelo através da página de ["Submissão"](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard?tab=submit) no leaderboard para avaliação em um cluster de GPU disponível. Esta é a opção recomendada e mais simples para a maioria dos modelos.
+2. **Submissão Manual**: Para modelos com requisitos especiais (como necessidade de `trust_remote_code=True`, dependência de bibliotecas além de `transformers`, modelos sem pesos públicos ou falhas na submissão automática).
 
-### 1. Run the Evaluation
+Para submissão manual, siga as instruções abaixo:
 
-Execute the evaluation harness for the complete benchmark:
+### 1. Execute a Avaliação Completa
 ```bash
 lm_eval --model hf \
-       --model_args pretrained=YOUR_MODEL_ID,trust_remote_code=True \
+       --model_args pretrained=SEU_MODELO_ID,trust_remote_code=True \
        --tasks enem_challenge,bluex,oab_exams,assin2_rte,assin2_sts,faquad_nli,hatebr_offensive,portuguese_hate_speech,tweetsentbr \
        --device cuda:0 \
        --batch_size auto \
-       --output_path results/YOUR_MODEL_ID \
+       --output_path results/SEU_MODELO_ID \
        --log_samples
 ```
 
-### 2. Submit Results
+### 2. Envie os Resultados
+Após a conclusão:
+1. Localize os arquivos JSON de resultados no diretório de saída (`output_path`);
+2. [Abra uma discussão](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard/discussions/new) no espaço do leaderboard anexando os resultados;
+3. **Envie um e-mail** para `edusantosgarcia@gmail.com` com:
+   - O nome do modelo e o link no Hugging Face Hub;
+   - Os arquivos JSON compactados em zip anexados;
+   - Quaisquer considerações especiais sobre o modelo.
 
-After running the evaluation:
-1. Look for the results JSON file in your output directory
-2. [Open an issue](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard/discussions/new) on the leaderboard space with your results attached
-3. **Send an email** to edusantosgarcia@gmail.com with:
-   - Your model name and Hugging Face Hub link
-   - The zipped JSON files attached
-   - Any special considerations about your model
+Os resultados serão revisados e adicionados manualmente ao ranking.
 
-I will review and add your results manually.
+---
 
-## Troubleshooting Evaluation Failures
+## Resolução de Problemas em Avaliações
 
-If your model evaluation fails:
-1  **Local Test:** Try running the evaluation command locally first. You can add `--limit 10` to quickly test evaluation on a small number of examples per task.
-    ```bash
-    lm_eval --model hf \
-        --model_args pretrained=YOUR_MODEL_ID,trust_remote_code=True \
-        --tasks pt_benchmark \
-        --device cuda:0 \
-        --batch_size 8 \
-        --limit 10
-    ```
-2.  **Check Logs:** Examine the output logs for specific error messages.
-3.  **Consult Leaderboard FAQ:** Review the FAQ section on the [leaderboard space](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard) for common issues.
-4.  **Open Issue:** If the problem persists, consider opening an issue in this repository or on the leaderboard's discussion forum.
+Se a avaliação do seu modelo falhar:
+1. **Teste Local com Amostra**: Execute o comando localmente adicionando `--limit 10` para testar rapidamente uma quantidade reduzida de exemplos por tarefa:
+   ```bash
+   lm_eval --model hf \
+       --model_args pretrained=SEU_MODELO_ID,trust_remote_code=True \
+       --tasks enem_challenge \
+       --device cuda:0 \
+       --batch_size 8 \
+       --limit 10
+   ```
+2. **Verifique os Logs**: Examine o arquivo `output.log` ou o terminal para verificar a mensagem exata do erro.
+3. **Consulte a FAQ do Leaderboard**: Revise a seção de dúvidas frequentes no [espaço do leaderboard](https://huggingface.co/spaces/eduagarcia/open_pt_llm_leaderboard).
+4. **Abra uma Issue**: Se o problema persistir, abra uma issue neste repositório ou no fórum de discussões do leaderboard.
 
-## Acknowledgments
+---
 
-This project builds upon the excellent work of [EleutherAI's LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness). We express our gratitude to the original authors and contributors. We also thank the creators of the datasets used in the Portuguese benchmark tasks.
+## Agradecimentos
 
-## Citation
+Este projeto é construído sobre o excelente trabalho do [LM Evaluation Harness da EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness). Expressamos nossa gratidão aos autores e contribuidores originais. Também agradecemos aos criadores dos conjuntos de dados utilizados nas tarefas do benchmark em português.
 
-If you use this framework or the benchmark results in your research, please cite this repository and the original LM Evaluation Harness. Consider citing the specific datasets used as well.
+---
+
+## Citação
+
+Se você utilizar este framework ou os resultados deste benchmark em sua pesquisa, por favor cite este repositório e o LM Evaluation Harness original:
 
 ```bibtex
 @misc{open-pt-llm-leaderboard,
@@ -254,7 +281,7 @@ If you use this framework or the benchmark results in your research, please cite
 }
 ```
 
-For specific datasets used in the Portuguese benchmark:
+Para citar os datasets específicos do benchmark em português:
 
 ```bibtex
 @InProceedings{ENEM-Challenge,

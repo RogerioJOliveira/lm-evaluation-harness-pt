@@ -1,0 +1,129 @@
+{
+  "id": "sim_20260925_114712_mimo_v2.6_flash",
+  "model": "mimo-v2.6-flash",
+  "tasks": [
+    "enem_challenge"
+  ],
+  "limit": 3,
+  "num_fewshot": 0,
+  "timestamp": "2026-09-25 11:47:13",
+  "duration_seconds": 1.7,
+  "status": "completed",
+  "is_simulation": true,
+  "metrics": {
+    "overall_accuracy": 66.67,
+    "total_samples": 3,
+    "tasks_evaluated": [
+      "enem_challenge"
+    ]
+  },
+  "questions": [
+    {
+      "id": "enem_challenge_1",
+      "index": 0,
+      "task": "enem_challenge",
+      "question": "Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        "A) R$ 1.100,00",
+        "B) R$ 1.250,00",
+        "C) R$ 1.300,00",
+        "D) R$ 1.450,00",
+        "E) R$ 1.500,00"
+      ],
+      "gold": "C",
+      "model_choice": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 44,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "enem_challenge_2",
+      "index": 1,
+      "task": "enem_challenge",
+      "question": "Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        "A) ATP",
+        "B) NADPH",
+        "C) CO2",
+        "D) Ribulose-1,5-bisfosfato",
+        "E) Clorofila a"
+      ],
+      "gold": "E",
+      "model_choice": "B",
+      "is_correct": false,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 36,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "enem_challenge_3",
+      "index": 2,
+      "task": "enem_challenge",
+      "question": "A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        "A) A extinção do sufrágio universal para analfabetos",
+        "B) A criação do Sistema Único de Saúde (SUS) e universalização do acesso",
+        "C) A censura prévia institucionalizada para meios de comunicação",
+        "D) A revogação do habeas corpus em crimes políticos",
+        "E) O mandato presidencial vitalício"
+      ],
+      "gold": "B",
+      "model_choice": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 3,
+      "correct": 2,
+      "wrong": 1,
+      "accuracy": 66.67
+    },
+    "categories": [
+      {
+        "category": "Ciências da Natureza (Física, Química, Biologia)",
+        "total": 1,
+        "correct": 0,
+        "wrong": 1,
+        "accuracy": 0.0
+      },
+      {
+        "category": "Matemática e Exatas",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ciências Humanas (História, Geografia, Filosofia)",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "prompt_engineering",
+        "severity": "high",
+        "title": "Atenção a Enunciados com Negação (INCORRETO / EXCETO)",
+        "description": "A LLM acertou apenas 0.0% das questões contendo termos como 'NÃO', 'EXCETO' ou 'INCORRETO' (contra 66.7% na média geral). Modelos frequentemente sofrem com viés de confirmação selecionando a primeira alternativa verdadeira.",
+        "recommendation": "Inclua no prompt do sistema uma instrução enfática: 'Preste atenção estrita a palavras de negação como INCORRETO, EXCETO ou NÃO no enunciado antes de selecionar a alternativa'."
+      },
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Adoção de Raciocínio Passo a Passo (Chain-of-Thought)",
+        "description": "Atualmente o modelo responde diretamente a letra da alternativa. Para problemas que exigem dedução em múltiplos passos, o raciocínio explícito reduz erros dedutivos.",
+        "recommendation": "Altere o formato de resposta para solicitar uma breve justificativa em 2 linhas antes de indicar a letra final no formato 'Resposta: [LETRA]'."
+      }
+    ]
+  }
+}

@@ -1,5 +1,10 @@
 import copy
 import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 from collections import defaultdict
 from importlib.util import find_spec
 from typing import List, Literal, Optional, Tuple
@@ -77,9 +82,9 @@ def oa_completion(client, chat: bool = False, **kwargs):
         resp = completion()
         response = []
         for c in resp.choices:
-            content = c.message.content
+            content = c.message.content or ""
             if content.startswith("assistant"):
-                content = content.replace("assistant", "")
+                content = content.replace("assistant", "", 1).strip()
             response.append(content)
         eval_logger.info(f"Response: {response}")
         
@@ -100,6 +105,7 @@ class OpenaiCompletionsLM(LM):
         self,
         model: str,
         base_url: str = None,
+        api_key: Optional[str] = None,
         tokenizer: Optional[str] = None,
         tokenizer_backend: Literal["tiktoken", "huggingface"] = "tiktoken",
         truncate: bool = False,
@@ -107,6 +113,7 @@ class OpenaiCompletionsLM(LM):
         batch_size: int = 1,
         seed: int = 1234,
         max_length: Optional[int] = None,
+        **kwargs,
     ) -> None:
         """
 
@@ -157,13 +164,24 @@ class OpenaiCompletionsLM(LM):
                 f"Expected tokenizer_backend to be one of ['tiktoken', 'huggingface'] but got {self.tokenizer_backend}"
             )
 
-        # Read from environment variable OPENAI_API_KEY
-        # Set to EMPTY for local
-        openai.api_key = os.environ["OPENAI_API_KEY"]
+        # Read from environment variables (OPENAI_API_KEY, MIMO_API_KEY) or parameters
+        self.api_key = (
+            api_key
+            or kwargs.get("api_key")
+            or os.environ.get("OPENAI_API_KEY")
+            or os.environ.get("MIMO_API_KEY")
+        )
+        if self.api_key:
+            openai.api_key = self.api_key
+        elif "OPENAI_API_KEY" in os.environ:
+            openai.api_key = os.environ["OPENAI_API_KEY"]
+
+        client_kwargs = {}
         if self.base_url:
-            self.client = openai.OpenAI(base_url=self.base_url)
-        else:
-            self.client = openai.OpenAI()
+            client_kwargs["base_url"] = self.base_url
+        if self.api_key:
+            client_kwargs["api_key"] = self.api_key
+        self.client = openai.OpenAI(**client_kwargs)
 
     @property
     def eot_token_id(self):
@@ -370,6 +388,7 @@ class OpenaiChatCompletionsLM(LM):
         self,
         model: str = "gpt-3.5-turbo",  # GPT model or Local model using HuggingFace model paths
         base_url: str = None,
+        api_key: Optional[str] = None,
         truncate: bool = False,
         sleep_after_request: float = None,
         **kwargs,
@@ -398,12 +417,26 @@ class OpenaiChatCompletionsLM(LM):
         self.truncate = truncate
         self.sleep_after_request = sleep_after_request
 
-        # Read from environment variable OPENAI_API_KEY
-        # Set to EMPTY for local
+        # Default base_url if using Xiaomi MIMO models
+        if not self.base_url and "mimo" in self.model.lower():
+            self.base_url = os.environ.get("MIMO_BASE_URL", "https://api.xiaomimimo.com/v1")
+
+        # Read from api_key, MIMO_API_KEY, or OPENAI_API_KEY
+        self.api_key = (
+            api_key
+            or kwargs.get("api_key")
+            or (os.environ.get("MIMO_API_KEY") if "mimo" in self.model.lower() or (self.base_url and "xiaomimimo" in self.base_url) else None)
+            or os.environ.get("OPENAI_API_KEY")
+            or os.environ.get("MIMO_API_KEY")
+        )
+
+        client_kwargs = {"max_retries": 0}
         if self.base_url:
-            self.client = openai.OpenAI(base_url=self.base_url, max_retries=0)
-        else:
-            self.client = openai.OpenAI()  # openai.AsyncOpenAI()
+            client_kwargs["base_url"] = self.base_url
+        if self.api_key:
+            client_kwargs["api_key"] = self.api_key
+
+        self.client = openai.OpenAI(**client_kwargs)
 
         self.fix_text = lambda x: x.strip()
         if "gemini" in self.model:

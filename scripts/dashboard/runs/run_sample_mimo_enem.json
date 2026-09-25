@@ -1,0 +1,347 @@
+{
+  "id": "run_20260925_mimo_v26_flash_enem_oab",
+  "model": "mimo-v2.6-flash (Xiaomi MIMO)",
+  "tasks": ["enem_challenge", "oab_exams"],
+  "limit": 12,
+  "num_fewshot": 3,
+  "timestamp": "2026-09-25 11:24:00",
+  "duration_seconds": 38.4,
+  "status": "completed",
+  "metrics": {
+    "enem_challenge": {
+      "acc,none": 0.875,
+      "acc_norm,none": 0.875
+    },
+    "oab_exams": {
+      "acc,none": 0.75,
+      "acc_norm,none": 0.75
+    }
+  },
+  "questions": [
+    {
+      "id": "ENEM_2023_01",
+      "index": 0,
+      "task": "enem_challenge",
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "question": "A Carta de Pero Vaz de Caminha, redigida em 1500, é considerada o primeiro documento sobre a terra recém-encontrada pelos portugueses. Nela, o escrivão destaca o espanto mútuo entre europeus e nativos, bem como a preocupação em salvar as almas dos indígenas. Do ponto de vista historiográfico, o documento revela prioritariamente:",
+      "choices": [
+        {"label": "A", "text": "A ausência total de interesses comerciais ou econômicos na expedição de Pedro Álvares Cabral."},
+        {"label": "B", "text": "A visão eurocêntrica e missionária que justificava o projeto colonizador lusitano."},
+        {"label": "C", "text": "A adoção imediata de leis de proteção ambiental pelos colonizadores."},
+        {"label": "D", "text": "O desinteresse da Coroa portuguesa pelas riquezas minerais da nova colônia."},
+        {"label": "E", "text": "A submissão voluntária dos povos tupis aos dogmas da Igreja Católica."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "B",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 72,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_02",
+      "index": 1,
+      "task": "enem_challenge",
+      "category": "Matemática e Exatas",
+      "question": "Um agricultor deseja cercar uma área retangular com 120 metros de cerca disponível. Ele quer que um dos lados aproveite a margem retilínea de um rio, necessitando cercar apenas os outros três lados. Para maximizar a área cercada, qual deve ser a medida do lado paralelo ao rio?",
+      "choices": [
+        {"label": "A", "text": "30 metros."},
+        {"label": "B", "text": "40 metros."},
+        {"label": "C", "text": "60 metros."},
+        {"label": "D", "text": "80 metros."},
+        {"label": "E", "text": "90 metros."}
+      ],
+      "model_answer": "C",
+      "gold_answer": "C",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 52,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_03",
+      "index": 2,
+      "task": "enem_challenge",
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "question": "A fotossíntese é um processo físico-químico realizado por organismos clorofilados. Durante a fase clara, a energia luminosa é absorvida pelos pigmentos fotossintetizantes, provocando a fotólise da água. Em relação a esse fenômeno, assinale a afirmação que NÃO corresponde à realidade biológica:",
+      "choices": [
+        {"label": "A", "text": "O oxigênio liberado na atmosfera é proveniente da quebra da molécula de água."},
+        {"label": "B", "text": "Ocorre a síntese de ATP através da fotofosforilação."},
+        {"label": "C", "text": "Ocorre a redução do NADP+ a NADPH."},
+        {"label": "D", "text": "A fixação do carbono atmosférico (dióxido de carbono) ocorre no interior do tilacoide durante a fase clara."},
+        {"label": "E", "text": "A clorofila a é o pigmento principal nos centros de reação dos fotossistemas."}
+      ],
+      "model_answer": "A",
+      "gold_answer": "D",
+      "is_correct": false,
+      "has_negation": true,
+      "word_count": 78,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_04",
+      "index": 3,
+      "task": "enem_challenge",
+      "category": "Linguagens e Códigos",
+      "question": "No trecho do romance 'Memórias Póstumas de Brás Cubas', de Machado de Assis: 'Não tive filhos, não transmiti a nenhuma criatura o legado de nossa miséria.' A famosa frase final do protagonista explicita a seguinte característica marcante da prosa machadiana:",
+      "choices": [
+        {"label": "A", "text": "O pessimismo irônico e o desengano existencial diante da condição humana."},
+        {"label": "B", "text": "A exaltação do sentimentalismo romântico e da pureza da juventude."},
+        {"label": "C", "text": "O nacionalismo ufanista em relação à sociedade imperial brasileira."},
+        {"label": "D", "text": "O apego religioso e a busca pela redenção espiritual após a morte."},
+        {"label": "E", "text": "A crítica aberta e exclusiva ao sistema educacional da época."}
+      ],
+      "model_answer": "A",
+      "gold_answer": "A",
+      "is_correct": true,
+      "has_negation": true,
+      "word_count": 68,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_05",
+      "index": 4,
+      "task": "enem_challenge",
+      "category": "Matemática e Exatas",
+      "question": "Em uma urna há 5 bolas azuis e 3 bolas vermelhas. Retiram-se sucessivamente e sem reposição 2 bolas da urna. A probabilidade de ambas as bolas retiradas serem da mesma cor é:",
+      "choices": [
+        {"label": "A", "text": "13/28"},
+        {"label": "B", "text": "15/56"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "5/14"},
+        {"label": "E", "text": "11/28"}
+      ],
+      "model_answer": "A",
+      "gold_answer": "A",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 39,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_06",
+      "index": 5,
+      "task": "enem_challenge",
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "question": "Um circuito elétrico simples é formado por uma bateria ideal de 12 V e dois resistores de 4 ohms e 6 ohms associados em série. A corrente elétrica total que percorre o circuito e a potência dissipada pelo resistor de 6 ohms valem, respectivamente:",
+      "choices": [
+        {"label": "A", "text": "1,2 A e 8,64 W."},
+        {"label": "B", "text": "1,0 A e 6,00 W."},
+        {"label": "C", "text": "2,0 A e 24,0 W."},
+        {"label": "D", "text": "1,2 A e 5,76 W."},
+        {"label": "E", "text": "0,8 A e 3,84 W."}
+      ],
+      "model_answer": "A",
+      "gold_answer": "A",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 55,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_07",
+      "index": 6,
+      "task": "enem_challenge",
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "question": "O processo de globalização econômica contemporâneo, intensificado a partir do final do século XX com a expansão das telecomunicações e transportes rápidos, provocou transformações na divisão internacional do trabalho. Sobre essas transformações, assinale a alternativa INCORRETA:",
+      "choices": [
+        {"label": "A", "text": "Desconcentração espacial de etapas industriais para países com mão de obra mais barata."},
+        {"label": "B", "text": "Concentração das atividades de pesquisa, tecnologia e design em países centrais."},
+        {"label": "C", "text": "Eliminação definitiva de barreiras alfandegárias e protecionistas entre todas as nações do globo."},
+        {"label": "D", "text": "Fortalecimento do papel de corporações transnacionais na economia mundial."},
+        {"label": "E", "text": "Crescimento dos fluxos financeiros especulativos instantâneos pelo sistema bancário integrado."}
+      ],
+      "model_answer": "C",
+      "gold_answer": "C",
+      "is_correct": true,
+      "has_negation": true,
+      "word_count": 72,
+      "exam_year": "2023"
+    },
+    {
+      "id": "ENEM_2023_08",
+      "index": 7,
+      "task": "enem_challenge",
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "question": "Soluções tampão são de extrema importância em sistemas biológicos, mantendo o pH do sangue humano na faixa estrita de 7,35 a 7,45. O principal sistema tampão extracelular no organismo humano é constituído pelo equilíbrio entre:",
+      "choices": [
+        {"label": "A", "text": "Ácido clorídrico e cloreto de sódio."},
+        {"label": "B", "text": "Ácido carbônico e íon bicarbonato."},
+        {"label": "C", "text": "Ácido acético e acetato de sódio."},
+        {"label": "D", "text": "Ácido fosfórico e íon hidróxido."},
+        {"label": "E", "text": "Sulfato de cálcio e íon carbonato."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "B",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 47,
+      "exam_year": "2023"
+    },
+    {
+      "id": "OAB_XXXVIII_01",
+      "index": 8,
+      "task": "oab_exams",
+      "category": "Direito Constitucional & Teoria do Estado",
+      "question": "Determinada lei estadual do estado Alfa instituiu regras sobre trânsito e transporte rodoviário, proibindo a circulação de veículos de carga com peso superior a 15 toneladas em rodovias estaduais durante os fins de semana. De acordo com a jurisprudência pacificada do Supremo Tribunal Federal e o texto da Constituição de 1988, a referida lei estadual é:",
+      "choices": [
+        {"label": "A", "text": "Constitucional, pois os Estados têm competência privativa para legislar sobre rodovias estaduais."},
+        {"label": "B", "text": "Inconstitucional, pois invade competência legislativa privativa da União para legislar sobre trânsito e transporte."},
+        {"label": "C", "text": "Constitucional, desde que autorizada previamente por resolução do Senado Federal."},
+        {"label": "D", "text": "Inconstitucional apenas se colidir com interesse municipal local."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "B",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 68,
+      "exam_year": "2023"
+    },
+    {
+      "id": "OAB_XXXVIII_02",
+      "index": 9,
+      "task": "oab_exams",
+      "category": "Direito Penal & Processo Penal",
+      "question": "João, com intenção de subtrair para si coisa alheia móvel, ingressa durante a madrugada na residência de Maria enquanto esta dorme. Após embolsar jóias no valor de 20 mil reais, quando já estava no portão de saída, é surpreendido pelo segurança da rua, que tenta contê-lo. Para garantir a posse da res furtiva e sua fuga, João desfere uma coronhada na cabeça do segurança, causando-lhe lesão corporal de natureza leve. João deve responder pelo crime de:",
+      "choices": [
+        {"label": "A", "text": "Furto qualificado pelo repouso noturno em concurso material com lesão corporal leve."},
+        {"label": "B", "text": "Roubo próprio consumado."},
+        {"label": "C", "text": "Roubo impróprio consumado."},
+        {"label": "D", "text": "Tentativa de latrocínio com desclassificação judicial."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "C",
+      "is_correct": false,
+      "has_negation": false,
+      "word_count": 89,
+      "exam_year": "2023"
+    },
+    {
+      "id": "OAB_XXXVIII_03",
+      "index": 10,
+      "task": "oab_exams",
+      "category": "Ética Profissional OAB",
+      "question": "O advogado Carlos foi contratado por Marcos para representá-lo em ação judicial. No curso da demanda, Carlos tomou conhecimento de fatos confidenciais cruciais relacionados à intimidade de Marcos. Anos mais tarde, desfeita a relação contratual e encerrado o processo, Carlos é intimado como testemunha em outro processo envolvendo Marcos. Conforme o Estatuto da Advocacia e da OAB, Carlos:",
+      "choices": [
+        {"label": "A", "text": "É obrigado a depor em juízo, pois a verdade processual prevalece sobre a relação cliente-advogado."},
+        {"label": "B", "text": "Deve recusar-se a depor sobre os fatos dos quais teve conhecimento no exercício da profissão, subsistindo o sigilo profissional mesmo após o término do mandato."},
+        {"label": "C", "text": "Pode depor livremente, já que a relação de cliente foi encerrada há anos."},
+        {"label": "D", "text": "Pode depor apenas se autorizado pelo juiz da causa sob compromisso legal."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "B",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 83,
+      "exam_year": "2023"
+    },
+    {
+      "id": "OAB_XXXVIII_04",
+      "index": 11,
+      "task": "oab_exams",
+      "category": "Direito Civil & Processo Civil",
+      "question": "Rodrigo celebrou com Tiago contrato preliminar de compra e venda de imóvel residencial determinado, contendo todos os requisitos essenciais ao contrato a ser celebrado e sem cláusula de arrependimento, tendo sido levado a registro no Cartório de Imóveis. Concluído o prazo estipulado, Tiago nega-se injustificadamente a outorgar a escritura definitiva. Nessa situação, Rodrigo poderá requerer ao juiz:",
+      "choices": [
+        {"label": "A", "text": "Apenas indenização por perdas e danos decorrentes do descumprimento contratual."},
+        {"label": "B", "text": "A adjudicação compulsória do imóvel, tendo a sentença o poder de suprir a manifestação de vontade recusada."},
+        {"label": "C", "text": "A prisão civil de Tiago até o cumprimento integral da obrigação de fazer."},
+        {"label": "D", "text": "A rescisão obrigatória do contrato sem direito a qualquer retenção patrimonial."}
+      ],
+      "model_answer": "B",
+      "gold_answer": "B",
+      "is_correct": true,
+      "has_negation": false,
+      "word_count": 78,
+      "exam_year": "2023"
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 12,
+      "correct": 10,
+      "wrong": 2,
+      "accuracy": 83.33
+    },
+    "categories": [
+      {
+        "category": "Ciências da Natureza (Física, Química, Biologia)",
+        "total": 3,
+        "correct": 2,
+        "wrong": 1,
+        "accuracy": 66.7
+      },
+      {
+        "category": "Direito Penal & Processo Penal",
+        "total": 1,
+        "correct": 0,
+        "wrong": 1,
+        "accuracy": 0.0
+      },
+      {
+        "category": "Matemática e Exatas",
+        "total": 2,
+        "correct": 2,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ciências Humanas (História, Geografia, Filosofia)",
+        "total": 2,
+        "correct": 2,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Linguagens e Códigos",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Constitucional & Teoria do Estado",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ética Profissional OAB",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Civil & Processo Civil",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "prompt_engineering",
+        "severity": "high",
+        "title": "Atenção a Questões com Negação e 'Assinale a Incorreta'",
+        "description": "Na questão ENEM_2023_03 (Biologia), o modelo errou ao selecionar uma alternativa verdadeira (A), desconsiderando o comando 'assinale a afirmação que NÃO corresponde à realidade biológica'.",
+        "recommendation": "Adicione instrução específica no system prompt do lm_eval: 'Atenção redobrada: se o enunciado pedir a afirmação INCORRETA, FALSA ou EXCETO, selecione a afirmativa inverídica ao invés da verdadeira.'"
+      },
+      {
+        "type": "few_shot_prompt",
+        "severity": "medium",
+        "title": "Diferenciação Dogmática em Direito Penal (Roubo Próprio vs. Impróprio)",
+        "description": "Na questão OAB_XXXVIII_02, o modelo respondeu 'Roubo Próprio' quando a violência foi empregada logo após a subtração para assegurar a posse da coisa (característica técnica de Roubo Impróprio, Art. 157, §1º do CP).",
+        "recommendation": "Inclua exemplos few-shot contendo situações penais de roubo impróprio com explicação da distinção legal entre o momento da violência."
+      },
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Ativação de Raciocínio Reflexivo em Provas Técnicas",
+        "description": "Em questões jurídicas e científicas densas, a geração direta de um único caractere sem justificativa induz o modelo a apostar no conceito mais frequente no pré-treino.",
+        "recommendation": "Configure `generation_kwargs: {max_gen_toks: 256}` com prompt Chain-of-Thought breve: 'Explique em duas frases a eliminação das alternativas incorretas e conclua com Resposta: [LETRA]'."
+      }
+    ]
+  }
+}

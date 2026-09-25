@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Portuguese LLM Benchmark - Dashboard de Desempenho</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/custom.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            dark: {
+              bg: '#0b0f17',
+              card: '#161f30',
+              border: '#1f293d',
+              accent: '#232f48'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0b0f17] text-gray-100 min-h-screen flex flex-col">
+
+  <!-- TOP NAVBAR -->
+  <header class="glass-nav sticky top-0 z-50 px-6 py-3.5 flex items-center justify-between border-b border-gray-800">
+    <div class="flex items-center space-x-4">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+        <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 class="text-base font-bold text-white tracking-tight">Open Portuguese LLM Benchmark</h1>
+          <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">Harness PT</span>
+        </div>
+        <p class="text-xs text-gray-400">Dashboard de Avaliação, Diagnóstico de Questões e Melhorias</p>
+      </div>
+    </div>
+
+    <!-- Active Run Selector & Actions -->
+    <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-2 bg-gray-900/80 px-3 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-300">
+        <i data-lucide="database" class="w-3.5 h-3.5 text-indigo-400"></i>
+        <span>Execução Ativa:</span>
+        <select id="runSelector" class="bg-transparent text-white font-medium focus:outline-none cursor-pointer">
+          <option value="" disabled selected>Carregando rodadas...</option>
+        </select>
+      </div>
+      <button id="refreshBtn" class="p-2 rounded-lg bg-gray-800/80 hover:bg-gray-700 text-gray-300 transition" title="Atualizar dados">
+        <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+      </button>
+      <button id="deleteRunBtn" onclick="deleteCurrentRun()" class="p-2 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-rose-300 border border-rose-800/40 transition" title="Excluir rodada ativa">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="bg-gray-900/60 border-b border-gray-800/80 px-6">
+    <div class="flex space-x-2 overflow-x-auto py-2.5">
+      <button onclick="switchTab('leaderboard')" id="tabBtn-leaderboard" class="tab-btn active px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-2 border border-transparent">
+        <i data-lucide="trophy" class="w-4 h-4 text-amber-400"></i>
+        <span>Leaderboard Geral</span>
+      </button>
+      <button onclick="switchTab('runner')" id="tabBtn-runner" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-2 border border-transparent text-gray-400 hover:text-gray-200">
+        <i data-lucide="play-circle" class="w-4 h-4 text-emerald-400"></i>
+        <span>Executor de Testes</span>
+      </button>
+      <button onclick="switchTab('questions')" id="tabBtn-questions" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-2 border border-transparent text-gray-400 hover:text-gray-200">
+        <i data-lucide="check-check" class="w-4 h-4 text-indigo-400"></i>
+        <span>Inspetor de Questões</span>
+        <span id="tabBadgeQuestions" class="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-gray-800 text-gray-300">0</span>
+      </button>
+      <button onclick="switchTab('categories')" id="tabBtn-categories" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-2 border border-transparent text-gray-400 hover:text-gray-200">
+        <i data-lucide="pie-chart" class="w-4 h-4 text-cyan-400"></i>
+        <span>Categorias & Disciplinas</span>
+      </button>
+      <button onclick="switchTab('suggestions')" id="tabBtn-suggestions" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium flex items-center space-x-2 border border-transparent text-gray-400 hover:text-gray-200">
+        <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+        <span>Sugestões & Insights</span>
+        <span id="tabBadgeSuggestions" class="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 p-6 max-w-7xl w-full mx-auto space-y-6">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: LEADERBOARD GERAL & COMPARATIVO   -->
+    <!-- ========================================== -->
+    <section id="view-leaderboard" class="space-y-6 animate-fade-in">
+      <!-- Header & Radar Card -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Banner Intro -->
+        <div class="lg:col-span-2 glass-panel p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div>
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-400 mb-3">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              <span>Ranking Oficial de LLMs em Língua Portuguesa</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white tracking-tight mb-2">Desempenho Geral nos Benchmarks Nacionais</h2>
+            <p class="text-sm text-gray-400 max-w-xl leading-relaxed">
+              Comparação detalhada de modelos de ponta nos exames do ENEM, Vestibulares (BlueX), Exame de Ordem da OAB e tarefas de NLI, Semântica e Moderação de Conteúdo.
+            </p>
+          </div>
+          <!-- Quick Highlights -->
+          <div class="grid grid-cols-3 gap-4 mt-6 pt-4 border-t border-gray-800">
+            <div>
+              <span class="text-xs text-gray-500">Líder Geral</span>
+              <p class="text-base font-bold text-amber-400 flex items-center gap-1">
+                <i data-lucide="crown" class="w-4 h-4"></i> Gemini 2.5 Pro
+              </p>
+              <span class="text-xs text-gray-400">88.37% Méd.</span>
+            </div>
+            <div>
+              <span class="text-xs text-gray-500">Nosso Modelo Testado</span>
+              <p class="text-base font-bold text-indigo-400 flex items-center gap-1">
+                <i data-lucide="zap" class="w-4 h-4"></i> MIMO v2.6 Flash
+              </p>
+              <span class="text-xs text-emerald-400 font-medium">84.15% (4º Lugar)</span>
+            </div>
+            <div>
+              <span class="text-xs text-gray-500">Total de Modelos</span>
+              <p class="text-base font-bold text-white">12 Avaliados</p>
+              <span class="text-xs text-gray-400">9 Benchmarks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radar Chart Habilidades -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-between">
+          <div class="w-full flex items-center justify-between mb-2">
+            <h3 class="text-sm font-semibold text-gray-200">Radar Multidimensional</h3>
+            <span class="text-[11px] text-gray-400">Top 3 vs MIMO</span>
+          </div>
+          <div class="relative w-full h-56 flex items-center justify-center">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leaderboard Table -->
+      <div class="glass-panel rounded-2xl overflow-hidden border border-gray-800">
+        <div class="p-4 border-b border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="table" class="w-4 h-4 text-indigo-400"></i>
+            <h3 class="font-semibold text-sm text-gray-200">Tabela Comparativa Oficial</h3>
+          </div>
+          <div class="relative w-full sm:w-72">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-gray-500"></i>
+            <input type="text" id="leaderboardSearch" placeholder="Buscar por modelo ou provedor..." class="w-full pl-9 pr-4 py-1.5 text-xs rounded-lg bg-gray-900 border border-gray-800 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-gray-900/90 text-gray-400 uppercase font-semibold border-b border-gray-800">
+              <tr>
+                <th class="py-3 px-3 text-center">#</th>
+                <th class="py-3 px-4">Modelo</th>
+                <th class="py-3 px-3 text-right text-indigo-400 font-bold">Média ▼</th>
+                <th class="py-3 px-3 text-right">ENEM</th>
+                <th class="py-3 px-3 text-right">BLUEX</th>
+                <th class="py-3 px-3 text-right">OAB Exams</th>
+                <th class="py-3 px-3 text-right">ASSIN2 RTE</th>
+                <th class="py-3 px-3 text-right">ASSIN2 STS</th>
+                <th class="py-3 px-3 text-right">FAQUAD NLI</th>
+                <th class="py-3 px-3 text-right">HateBR</th>
+                <th class="py-3 px-3 text-right">PT Hate</th>
+                <th class="py-3 px-3 text-right">tweetSent</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardTableBody" class="divide-y divide-gray-800/60 font-mono text-[11px]">
+              <!-- Inserido dinamicamente via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: EXECUTOR DE TESTES & MONITOR       -->
+    <!-- ========================================== -->
+    <section id="view-runner" class="space-y-6 hidden animate-fade-in">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Painel de Configuração -->
+        <div class="glass-panel p-6 rounded-2xl space-y-5">
+          <div class="flex items-center space-x-2 border-b border-gray-800 pb-3">
+            <i data-lucide="sliders" class="w-5 h-5 text-indigo-400"></i>
+            <h3 class="text-base font-bold text-white">Configurar Nova Avaliação</h3>
+          </div>
+
+          <!-- Modo de Execução: Híbrido (Simulação vs Real) -->
+          <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-3 space-y-2">
+            <span class="text-xs font-semibold text-indigo-300 flex items-center gap-1.5">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i> Modo de Execução
+            </span>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <label class="flex items-center space-x-2 p-2 rounded-lg bg-gray-900/90 border border-indigo-500/60 cursor-pointer text-indigo-200">
+                <input type="radio" name="executionMode" value="simulation" checked class="text-indigo-600 focus:ring-0">
+                <div>
+                  <span class="font-bold">⚡ Simulação</span>
+                  <p class="text-[10px] text-indigo-300/70">Instantâneo / Sem custo</p>
+                </div>
+              </label>
+              <label class="flex items-center space-x-2 p-2 rounded-lg bg-gray-900/60 border border-gray-800 hover:border-gray-700 cursor-pointer text-gray-300">
+                <input type="radio" name="executionMode" value="real" class="text-indigo-600 focus:ring-0">
+                <div>
+                  <span class="font-bold">🌐 Execução Real</span>
+                  <p class="text-[10px] text-gray-400">Chamada API (.env)</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Seleção de Modelo -->
+          <div>
+            <label class="block text-xs font-medium text-gray-400 mb-1.5">Modelo LLM</label>
+            <select id="runnerModel" onchange="toggleCustomModelInput(this.value)" class="w-full p-2.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-white focus:outline-none focus:border-indigo-500">
+              <option value="mimo-v2.6-flash" selected>mimo-v2.6-flash (Xiaomi MIMO)</option>
+              <option value="gpt-4o">gpt-4o (OpenAI)</option>
+              <option value="gpt-4o-mini">gpt-4o-mini (OpenAI)</option>
+              <option value="custom">Outro (Inserir manualmente)</option>
+            </select>
+            <input type="text" id="runnerCustomModel" placeholder="Digite o nome do modelo (ex: meta-llama/Llama-3-8B)" class="w-full mt-2 p-2 rounded-lg bg-gray-900 border border-gray-800 text-xs text-white hidden focus:outline-none focus:border-indigo-500">
+          </div>
+
+          <!-- Seleção de Tarefas -->
+          <div>
+            <label class="block text-xs font-medium text-gray-400 mb-1.5">Tarefas do Benchmark</label>
+            <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
+              <label class="flex items-center space-x-2.5 p-2 rounded-lg bg-gray-900/60 border border-gray-800/80 hover:bg-gray-800/50 cursor-pointer">
+                <input type="checkbox" name="tasks" value="enem_challenge" checked class="w-4 h-4 text-indigo-600 rounded bg-gray-800 border-gray-700">
+                <div class="text-xs">
+                  <span class="font-semibold text-gray-200">enem_challenge</span>
+                  <p class="text-[10px] text-gray-400">Exame Nacional do Ensino Médio</p>
+                </div>
+              </label>
+              <label class="flex items-center space-x-2.5 p-2 rounded-lg bg-gray-900/60 border border-gray-800/80 hover:bg-gray-800/50 cursor-pointer">
+                <input type="checkbox" name="tasks" value="oab_exams" checked class="w-4 h-4 text-indigo-600 rounded bg-gray-800 border-gray-700">
+                <div class="text-xs">
+                  <span class="font-semibold text-gray-200">oab_exams</span>
+                  <p class="text-[10px] text-gray-400">Exame de Ordem dos Advogados</p>
+                </div>
+              </label>
+              <label class="flex items-center space-x-2.5 p-2 rounded-lg bg-gray-900/60 border border-gray-800/80 hover:bg-gray-800/50 cursor-pointer">
+                <input type="checkbox" name="tasks" value="bluex" class="w-4 h-4 text-indigo-600 rounded bg-gray-800 border-gray-700">
+                <div class="text-xs">
+                  <span class="font-semibold text-gray-200">bluex</span>
+                  <p class="text-[10px] text-gray-400">Vestibulares USP & UNICAMP</p>
+                </div>
+              </label>
+              <label class="flex items-center space-x-2.5 p-2 rounded-lg bg-gray-900/60 border border-gray-800/80 hover:bg-gray-800/50 cursor-pointer">
+                <input type="checkbox" name="tasks" value="assin2_rte" class="w-4 h-4 text-indigo-600 rounded bg-gray-800 border-gray-700">
+                <div class="text-xs">
+                  <span class="font-semibold text-gray-200">assin2_rte</span>
+                  <p class="text-[10px] text-gray-400">Reconhecimento de Inferência Textual</p>
+                </div>
+              </label>
+              <label class="flex items-center space-x-2.5 p-2 rounded-lg bg-gray-900/60 border border-gray-800/80 hover:bg-gray-800/50 cursor-pointer">
+                <input type="checkbox" name="tasks" value="hatebr_offensive" class="w-4 h-4 text-indigo-600 rounded bg-gray-800 border-gray-700">
+                <div class="text-xs">
+                  <span class="font-semibold text-gray-200">hatebr_offensive</span>
+                  <p class="text-[10px] text-gray-400">Classificação de Discurso Tóxico</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Limite de Amostras & Few-shot -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-gray-400 mb-1">Limite Amostras</label>
+              <input type="number" id="runnerLimit" value="10" min="1" max="1000" class="w-full p-2 rounded-lg bg-gray-900 border border-gray-800 text-sm text-white focus:outline-none focus:border-indigo-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-400 mb-1">Nº Few-Shot</label>
+              <input type="number" id="runnerFewshot" value="3" min="0" max="10" class="w-full p-2 rounded-lg bg-gray-900 border border-gray-800 text-sm text-white focus:outline-none focus:border-indigo-500">
+            </div>
+          </div>
+
+          <!-- Botão Disparar -->
+          <button id="btnStartRun" onclick="startEvaluationRun()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition flex items-center justify-center space-x-2">
+            <i data-lucide="play" class="w-4 h-4"></i>
+            <span>Iniciar Avaliação Sob Demanda</span>
+          </button>
+        </div>
+
+        <!-- Terminal e Monitor de Progresso -->
+        <div class="lg:col-span-2 glass-panel p-6 rounded-2xl flex flex-col space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="terminal" class="w-5 h-5 text-emerald-400"></i>
+              <h3 class="text-base font-bold text-white">Monitor de Execução em Tempo Real</h3>
+            </div>
+            <div id="runnerStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-800 text-gray-400 border border-gray-700 flex items-center space-x-1.5">
+              <span class="w-2 h-2 rounded-full bg-gray-500"></span>
+              <span>Inativo</span>
+            </div>
+          </div>
+
+          <!-- Barra de Progresso -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs text-gray-400">
+              <span id="runnerCurrentTaskText">Aguardando início...</span>
+              <span id="runnerProgressPctText">0%</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-gray-900 overflow-hidden border border-gray-800">
+              <div id="runnerProgressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 transition-all duration-300 w-0"></div>
+            </div>
+          </div>
+
+          <!-- Janela do Terminal -->
+          <div class="flex-1 terminal-window rounded-xl p-4 overflow-y-auto text-xs text-gray-300 space-y-1 h-80 font-mono" id="terminalOutput">
+            <p class="text-gray-500">Pronto para iniciar nova bateria de testes. Clique em 'Iniciar Avaliação' para acompanhar os logs.</p>
+          </div>
+
+          <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-gray-800">
+            <span>Servidor: FastAPI + Uvicorn | Modelo: Xiaomi MIMO / OpenAI</span>
+            <button onclick="clearTerminal()" class="hover:text-gray-300 transition">Limpar Terminal</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: INSPETOR DE QUESTÕES (ACERTOS/ERROS)-->
+    <!-- ========================================== -->
+    <section id="view-questions" class="space-y-6 hidden animate-fade-in">
+      <!-- KPI Stats Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass-panel p-4 rounded-xl">
+          <span class="text-xs text-gray-400 font-medium">Total de Questões</span>
+          <p id="kpiTotal" class="text-2xl font-bold text-white mt-1">0</p>
+        </div>
+        <div class="glass-panel p-4 rounded-xl border-emerald-500/20">
+          <span class="text-xs text-emerald-400 font-medium flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Acertos
+          </span>
+          <p id="kpiCorrect" class="text-2xl font-bold text-emerald-400 mt-1">0</p>
+        </div>
+        <div class="glass-panel p-4 rounded-xl border-rose-500/20">
+          <span class="text-xs text-rose-400 font-medium flex items-center gap-1">
+            <i data-lucide="x-circle" class="w-3.5 h-3.5"></i> Erros
+          </span>
+          <p id="kpiWrong" class="text-2xl font-bold text-rose-400 mt-1">0</p>
+        </div>
+        <div class="glass-panel p-4 rounded-xl border-indigo-500/20">
+          <span class="text-xs text-indigo-400 font-medium flex items-center gap-1">
+            <i data-lucide="percent" class="w-3.5 h-3.5"></i> Acurácia Geral
+          </span>
+          <p id="kpiAccuracy" class="text-2xl font-bold text-indigo-400 mt-1">0.0%</p>
+        </div>
+      </div>
+
+      <!-- Filtros Rápidos & Busca -->
+      <div class="glass-panel p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Pílulas de Status -->
+        <div class="flex items-center space-x-2 w-full md:w-auto">
+          <button onclick="setQuestionFilter('all')" id="qFilterAll" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition">
+            Todas (<span id="countFilterAll">0</span>)
+          </button>
+          <button onclick="setQuestionFilter('correct')" id="qFilterCorrect" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition">
+            🟢 Acertos (<span id="countFilterCorrect">0</span>)
+          </button>
+          <button onclick="setQuestionFilter('wrong')" id="qFilterWrong" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition">
+            🔴 Erros (<span id="countFilterWrong">0</span>)
+          </button>
+        </div>
+
+        <div class="flex items-center space-x-3 w-full md:w-auto">
+          <!-- Filtro de Categoria -->
+          <select id="questionCategoryFilter" onchange="applyQuestionFilters()" class="text-xs p-2 rounded-lg bg-gray-900 border border-gray-800 text-gray-300 focus:outline-none focus:border-indigo-500">
+            <option value="all">Todas as Disciplinas</option>
+          </select>
+
+          <!-- Input de Busca -->
+          <div class="relative w-full md:w-64">
+            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-gray-500"></i>
+            <input type="text" id="questionSearch" oninput="applyQuestionFilters()" placeholder="Buscar no enunciado..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-gray-900 border border-gray-800 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Cards de Questões -->
+      <div id="questionsContainer" class="space-y-4">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: CATEGORIAS & DISCIPLINAS           -->
+    <!-- ========================================== -->
+    <section id="view-categories" class="space-y-6 hidden animate-fade-in">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Gráfico de Barras de Acurácia -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="bar-chart-3" class="w-5 h-5 text-indigo-400"></i>
+              <h3 class="text-base font-bold text-white">Taxa de Acerto por Disciplina</h3>
+            </div>
+            <span class="text-xs text-gray-400">Percentual (%)</span>
+          </div>
+          <div class="relative h-72 flex items-center justify-center">
+            <canvas id="categoriesBarChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Matriz / Tabela de Desempenho por Área -->
+        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="layout-grid" class="w-5 h-5 text-cyan-400"></i>
+              <h3 class="text-base font-bold text-white">Distribuição de Acertos e Erros</h3>
+            </div>
+            <span class="text-xs text-gray-400">Detalhamento</span>
+          </div>
+          <div class="overflow-y-auto max-h-72">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-gray-900 text-gray-400 font-semibold border-b border-gray-800 sticky top-0">
+                <tr>
+                  <th class="py-2 px-3">Disciplina / Área</th>
+                  <th class="py-2 px-2 text-center">Total</th>
+                  <th class="py-2 px-2 text-center text-emerald-400">Acertos</th>
+                  <th class="py-2 px-2 text-center text-rose-400">Erros</th>
+                  <th class="py-2 px-3 text-right">Taxa</th>
+                </tr>
+              </thead>
+              <tbody id="categoriesTableBody" class="divide-y divide-gray-800/60 font-mono text-[11px]">
+                <!-- Inserido dinamicamente via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 5: SUGESTÕES DE MELHORIAS & INSIGHTS  -->
+    <!-- ========================================== -->
+    <section id="view-suggestions" class="space-y-6 hidden animate-fade-in">
+      <div class="glass-panel p-6 rounded-2xl">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i>
+            <div>
+              <h3 class="text-base font-bold text-white">Diagnóstico Heurístico & Recomendações de Melhoria</h3>
+              <p class="text-xs text-gray-400">Plano de ação gerado automaticamente a partir dos padrões de erro detectados nas questões.</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            Insights Automáticos
+          </span>
+        </div>
+
+        <!-- Container de Cards de Sugestões -->
+        <div id="suggestionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Inserido dinamicamente via JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="glass-nav mt-auto px-6 py-4 border-t border-gray-800 text-center text-xs text-gray-500">
+    <p>Open Portuguese LLM Benchmark & Dashboard • Desenvolvido com lm-evaluation-harness-pt • Suporte nativo a Xiaomi MIMO, OpenAI e HuggingFace.</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

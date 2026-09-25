@@ -1,5 +1,10 @@
 import copy
 import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 from collections import defaultdict
 from importlib.util import find_spec
 from typing import List, Literal, Optional, Tuple
@@ -138,12 +143,25 @@ class OpenaiChatCompletionsLM(LM):
                     data = json.loads(line)
                     self.data[data["custom_id"]] = data["response"]["body"]
 
-        # Read from environment variable OPENAI_API_KEY
-        # Set to EMPTY for local
+        # Default base_url if using Xiaomi MIMO models
+        if not self.base_url and "mimo" in self.model.lower():
+            self.base_url = os.environ.get("MIMO_BASE_URL", "https://api.xiaomimimo.com/v1")
+
+        # Read from api_key, MIMO_API_KEY, or OPENAI_API_KEY
+        self.api_key = (
+            kwargs.get("api_key")
+            or (os.environ.get("MIMO_API_KEY") if "mimo" in self.model.lower() or (self.base_url and "xiaomimimo" in self.base_url) else None)
+            or os.environ.get("OPENAI_API_KEY")
+            or os.environ.get("MIMO_API_KEY")
+        )
+
+        client_kwargs = {"max_retries": 0}
         if self.base_url:
-            self.client = openai.OpenAI(base_url=self.base_url, max_retries=0)
-        else:
-            self.client = openai.OpenAI()  # openai.AsyncOpenAI()
+            client_kwargs["base_url"] = self.base_url
+        if self.api_key:
+            client_kwargs["api_key"] = self.api_key
+
+        self.client = openai.OpenAI(**client_kwargs)
 
         self.fix_text = lambda x: x.strip()
         if "gemini" in self.model:

@@ -1,4 +1,7 @@
 env
+.env
+.env*
+output.log
 *.pyc
 output/
 data/
@@ -17,3 +20,6 @@ temp
 profile_default/
 ipython_config.py
 outputs/
+.agents
+*.db
+*.sqlite3

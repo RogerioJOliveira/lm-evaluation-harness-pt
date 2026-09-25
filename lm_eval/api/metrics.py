@@ -66,9 +66,7 @@ def acc_score(items):
     unzipped_list = list(zip(*items))
     golds = unzipped_list[0]
     preds = unzipped_list[1]
-    acc_score = sklearn.metrics.accuracy_score(golds, preds)
-
-    return acc_score
+    return sum(g == p for g, p in zip(golds, preds)) / len(golds) if golds else 0.0
 
 @register_aggregation("matthews_corrcoef")
 def matthews_corrcoef(items):
@@ -429,31 +427,30 @@ class _bootstrap_internal:
 
 
 def bootstrap_stderr(f, xs, iters):
-    import multiprocessing as mp
-
-    pool = mp.Pool(mp.cpu_count())
-    # this gives a biased estimate of the stderr (i.e w/ the mean, it gives something
-    # equivalent to stderr calculated without Bessel's correction in the stddev.
-    # Unfortunately, I haven't been able to figure out what the right correction is
-    # to make the bootstrap unbiased - i considered multiplying by sqrt(n/(n-1)) but
-    # that would be ad-hoc and I can't prove that that would actually be an unbiased estimator)
-    # Thankfully, shouldn't matter because our samples are pretty big usually anyways
-    res = []
-    chunk_size = min(1000, iters)
+    import os
     from tqdm import tqdm
 
-    print("bootstrapping for stddev:", f.__name__)
-    for bootstrap in tqdm(
-        pool.imap(
-            _bootstrap_internal(f, chunk_size),
-            [(i, xs) for i in range(iters // chunk_size)],
-        ),
-        total=iters // chunk_size,
-    ):
-        # sample w replacement
-        res.extend(bootstrap)
+    res = []
+    chunk_size = min(1000, iters)
 
-    pool.close()
+    print("bootstrapping for stddev:", f.__name__)
+    if os.name == "nt" or iters <= 5000:
+        runner = _bootstrap_internal(f, chunk_size)
+        for i in tqdm(range(iters // chunk_size)):
+            res.extend(runner((i, xs)))
+    else:
+        import multiprocessing as mp
+        pool = mp.Pool(mp.cpu_count())
+        for bootstrap in tqdm(
+            pool.imap(
+                _bootstrap_internal(f, chunk_size),
+                [(i, xs) for i in range(iters // chunk_size)],
+            ),
+            total=iters // chunk_size,
+        ):
+            res.extend(bootstrap)
+        pool.close()
+
     return sample_stddev(res)
 
 

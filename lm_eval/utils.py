@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import collections
 import fnmatch
 import functools
@@ -26,8 +28,15 @@ from typing import (
     Union,
 )
 
-import torch
-import transformers
+try:
+    import torch
+except ImportError:
+    torch = None
+
+try:
+    import transformers
+except ImportError:
+    transformers = None
 import yaml
 from jinja2 import BaseLoader, Environment, StrictUndefined
 
@@ -625,8 +634,11 @@ def get_dtype(dtype: Union[str, torch.dtype]) -> torch.dtype:
     return _torch_dtype
 
 
+_BaseStoppingCriteria = transformers.StoppingCriteria if transformers is not None else object
+
+
 # Multi-token stopping criteria
-class MultiTokenEOSCriteria(transformers.StoppingCriteria):
+class MultiTokenEOSCriteria(_BaseStoppingCriteria):
     """Criteria to stop on the specified multi-token sequence."""
 
     def __init__(
