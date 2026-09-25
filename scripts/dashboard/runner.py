@@ -64,7 +64,9 @@ class EvaluationRunner:
         tasks: List[str],
         limit: Optional[int] = 10,
         num_fewshot: Optional[int] = None,
-        is_simulation: bool = False
+        is_simulation: bool = False,
+        base_url: Optional[str] = None,
+        api_key: Optional[str] = None
     ) -> str:
         with self.lock:
             if self.is_running:
@@ -83,7 +85,7 @@ class EvaluationRunner:
 
         thread = threading.Thread(
             target=self._run_worker,
-            args=(run_id, model, tasks, limit, num_fewshot, is_simulation),
+            args=(run_id, model, tasks, limit, num_fewshot, is_simulation, base_url, api_key),
             daemon=True
         )
         thread.start()
@@ -96,12 +98,14 @@ class EvaluationRunner:
         task_list: List[str],
         limit: Optional[int],
         num_fewshot: Optional[int],
-        is_simulation: bool
+        is_simulation: bool,
+        base_url: Optional[str] = None,
+        api_key: Optional[str] = None
     ):
         if is_simulation:
             self._execute_simulation(run_id, model_name, task_list, limit or 10, num_fewshot)
         else:
-            self._execute_real(run_id, model_name, task_list, limit, num_fewshot)
+            self._execute_real(run_id, model_name, task_list, limit, num_fewshot, base_url, api_key)
 
     def _execute_simulation(
         self,
@@ -244,6 +248,92 @@ class EvaluationRunner:
                 "gold": "C",
                 "has_negation": True,
                 "explanation": "O tweet expressa insatisfação e frustração com o atendimento, portanto tom Negativo."
+            },
+            {
+                "task": "enem_challenge",
+                "category": "Matemática e Exatas",
+                "question": "Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+                "choices": ["55", "59", "63", "67", "71"],
+                "gold": "C",
+                "has_negation": False,
+                "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+            },
+            {
+                "task": "enem_challenge",
+                "category": "Ciências da Natureza (Física, Química, Biologia)",
+                "question": "A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+                "choices": ["Etanol", "Ácido Lático (Lactato)", "Ácido Cítrico", "Glicerol", "Glicogênio"],
+                "gold": "B",
+                "has_negation": False,
+                "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+            },
+            {
+                "task": "oab_exams",
+                "category": "Direito Civil & Processo Civil",
+                "question": "Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+                "choices": ["Nulo de pleno direito", "Anulável", "Inexistente", "Válido e eficaz imediatamente"],
+                "gold": "B",
+                "has_negation": False,
+                "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+            },
+            {
+                "task": "oab_exams",
+                "category": "Direito Administrativo",
+                "question": "O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+                "choices": ["Princípio da Legalidade", "Princípio da Impessoalidade", "Princípio da Autotutela", "Princípio da Continuidade do Serviço"],
+                "gold": "B",
+                "has_negation": False,
+                "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+            },
+            {
+                "task": "bluex",
+                "category": "Ciências Humanas (História, Geografia, Filosofia)",
+                "question": "A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+                "choices": [
+                    "Na independência definitiva do Brasil perante Portugal",
+                    "Na expulsão dos invasores holandeses e sentimento nativista",
+                    "No início do ciclo do ouro em Minas Gerais",
+                    "Na proclamação da República de Palmares"
+                ],
+                "gold": "B",
+                "has_negation": False,
+                "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+            },
+            {
+                "task": "assin2_sts",
+                "category": "Similaridade Semântica e Pontuação",
+                "question": "Avalie o grau de similaridade semântica entre as frases:\nFrase A: 'O estudante leu o livro na biblioteca central durante a tarde.'\nFrase B: 'No período vespertino, o aluno realizou a leitura da obra no centro bibliotecário.'",
+                "choices": ["1.0 (Completamente diferente)", "2.5 (Tópico aproximado)", "4.8 (Altamente similar/quase idêntico)", "3.2 (Moderadamente similar)"],
+                "gold": "C",
+                "has_negation": False,
+                "explanation": "As duas sentenças descrevem a mesma ação, no mesmo local e no mesmo período temporal com pequenas paráfrases."
+            },
+            {
+                "task": "faquad_nli",
+                "category": "Compreensão de Perguntas e Respostas em Português",
+                "question": "Contexto: 'A Amazônia abriga a maior bacia hidrográfica do planeta, sendo o rio Amazonas responsável por cerca de 20% da vazão fluvial mundial.'\nPergunta: 'Qual porcentagem aproximada da descarga de água dos rios mundiais é atribuída ao rio Amazonas?'",
+                "choices": ["5%", "10%", "20%", "50%", "75%"],
+                "gold": "C",
+                "has_negation": False,
+                "explanation": "O texto afirma explicitamente que o rio Amazonas responde por cerca de 20% da vazão fluvial mundial."
+            },
+            {
+                "task": "hatebr_offensive",
+                "category": "Classificação de Discurso Tóxico",
+                "question": "Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+                "choices": ["Discurso de Ódio Ofensivo", "Crítica Legítima / Não Ofensivo"],
+                "gold": "B",
+                "has_negation": False,
+                "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+            },
+            {
+                "task": "pt_hate_speech",
+                "category": "Moderação de Conteúdo e Polaridade",
+                "question": "Identifique se a frase a seguir NÃO viola os termos de convivência da plataforma:\nFrase: 'Excelente iniciativa da prefeitura na restauração do parque municipal.'",
+                "choices": ["Viola termos (Conteúdo Impróprio)", "Não viola termos (Conteúdo Seguro)"],
+                "gold": "B",
+                "has_negation": True,
+                "explanation": "A frase é um elogio público cívico positivo, totalmente seguro e em conformidade."
             }
         ]
 
@@ -251,48 +341,76 @@ class EvaluationRunner:
         letters = ["A", "B", "C", "D", "E"]
         random.seed(int(time.time()))
 
-        total_to_generate = min(limit, len(sample_questions_bank)) if limit > 0 else len(sample_questions_bank)
-        if total_to_generate == 0:
-            total_to_generate = 5
+        # Respeita rigorosamente o número de amostras solicitado pelo usuário
+        total_to_generate = max(1, limit) if (limit and limit > 0) else 10
 
-        # Cria as questões selecionadas
-        selected_samples = sample_questions_bank[:total_to_generate]
-        for idx, base in enumerate(selected_samples):
-            # Simula taxa de acerto alta para modelos como MIMO/GPT (~80% a 90%)
+        # Mapeia questões base pelas tarefas selecionadas
+        task_specific_bank = [q for q in sample_questions_bank if q["task"] in task_list]
+        if not task_specific_bank:
+            task_specific_bank = sample_questions_bank
+
+        sleep_interval = max(0.015, min(0.09, 2.0 / total_to_generate))
+
+        for idx in range(total_to_generate):
+            base = task_specific_bank[idx % len(task_specific_bank)]
+            task_name = task_list[idx % len(task_list)] if task_list else base["task"]
+
+            # Variação no ID para garantir que cada questão seja única
+            q_id = f"{task_name}_{idx + 1}"
+            
+            # Simula acurácia realista (~80% a 90% para MIMO/GPT)
+            # Erra aproximadamente 1 a cada 6 ou 7 questões
+            is_correct = (idx % 6 != 2)
             gold_choice = base["gold"]
-            is_correct = (idx % 7 != 1)  # erra 1 a cada 7 questões para diagnóstico realista
 
             if is_correct:
                 model_choice = gold_choice
             else:
-                wrong_choices = [l for l in ["A", "B", "C", "D", "E"][:len(base["choices"])] if l != gold_choice]
-                model_choice = random.choice(wrong_choices) if wrong_choices else "A"
+                available_wrongs = [l for l in letters[:len(base["choices"])] if l != gold_choice]
+                model_choice = random.choice(available_wrongs) if available_wrongs else "A"
 
-            # Formata escolhas
+            # Formata alternativas uniformemente
             choices_formatted = []
             for c_idx, text in enumerate(base["choices"]):
-                c_letter = letters[c_idx]
-                choices_formatted.append(f"{c_letter}) {text}")
+                c_letter = letters[c_idx] if c_idx < len(letters) else str(c_idx)
+                choices_formatted.append({
+                    "label": c_letter,
+                    "text": text
+                })
+
+            # Monta pergunta
+            q_text = base["question"]
+            if idx >= len(task_specific_bank):
+                # Variação de índice para não duplicar exatamente o mesmo texto visualmente
+                q_text = f"[{task_name.upper()} Item #{idx+1}] {q_text}"
 
             q_obj = {
-                "id": f"{base['task']}_{idx+1}",
+                "id": q_id,
                 "index": idx,
-                "task": base["task"],
-                "question": base["question"],
+                "task": task_name,
+                "question": q_text,
                 "choices": choices_formatted,
                 "gold": gold_choice,
+                "gold_answer": gold_choice,
                 "model_choice": model_choice,
+                "model_answer": model_choice,
                 "is_correct": is_correct,
                 "category": base["category"],
                 "has_negation": base["has_negation"],
-                "word_count": len(base["question"].split()),
+                "word_count": len(q_text.split()),
                 "explanation": base["explanation"]
             }
             extracted_questions.append(q_obj)
 
-            self.append_log(f"Processando amostra {idx+1}/{total_to_generate} [{base['task']}]: "
-                            f"{'🟢 Acerto' if is_correct else '🔴 Erro'} (Resp: {model_choice} | Gab: {gold_choice})")
-            time.sleep(0.15)
+            # Atualiza barra de progresso proporcionalmente
+            with self.lock:
+                self.progress_pct = 40 + int((idx + 1) / total_to_generate * 45)
+
+            self.append_log(
+                f"Processando amostra {idx+1}/{total_to_generate} [{task_name}]: "
+                f"{'🟢 Acerto' if is_correct else '🔴 Erro'} (Resp: {model_choice} | Gab: {gold_choice})"
+            )
+            time.sleep(sleep_interval)
 
         with self.lock:
             self.progress_pct = 85
@@ -345,23 +463,42 @@ class EvaluationRunner:
         model_name: str,
         task_list: List[str],
         limit: Optional[int],
-        num_fewshot: Optional[int]
+        num_fewshot: Optional[int],
+        base_url: Optional[str] = None,
+        api_key: Optional[str] = None
     ):
         """Executa avaliação real invocando o motor lm_eval."""
         self.append_log(f"Iniciando execução real do run: {run_id}")
         self.append_log(f"Modelo: {model_name} | Tarefas: {', '.join(task_list)} | Limite de amostras: {limit}")
 
         try:
+            # Resolução de base_url e api_key
+            if not base_url:
+                if "mimo" in model_name.lower():
+                    base_url = os.environ.get("MIMO_BASE_URL", "https://api.xiaomimimo.com/v1")
+                elif "gpt-" in model_name.lower():
+                    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
+                else:
+                    base_url = os.environ.get("MIMO_BASE_URL") or os.environ.get("OPENAI_BASE_URL")
+
+            if not api_key:
+                if "mimo" in model_name.lower():
+                    api_key = os.environ.get("MIMO_API_KEY")
+                elif "gpt-" in model_name.lower():
+                    api_key = os.environ.get("OPENAI_API_KEY")
+                else:
+                    api_key = os.environ.get("MIMO_API_KEY") or os.environ.get("OPENAI_API_KEY")
+
             # Configura argumentos do modelo
-            if "mimo" in model_name.lower():
-                model_type = "openai-chat-completions"
-                model_args = f"model={model_name},base_url=https://api.xiaomimimo.com/v1"
-            elif "gpt-" in model_name.lower():
-                model_type = "openai-chat-completions"
-                model_args = f"model={model_name}"
-            else:
-                model_type = "openai-chat-completions"
-                model_args = f"model={model_name}"
+            model_type = "openai-chat-completions"
+            args_list = [f"model={model_name}"]
+            if base_url:
+                args_list.append(f"base_url={base_url}")
+            if api_key:
+                args_list.append(f"api_key={api_key}")
+            model_args = ",".join(args_list)
+
+            self.append_log(f"Conectando a {base_url or 'OpenAI Default'}...")
 
             self.append_log("Carregando motor lm_eval...")
             with self.lock:

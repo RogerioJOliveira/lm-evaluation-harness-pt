@@ -1,0 +1,464 @@
+{
+  "id": "sim_20260925_123428_mimo_v2.6_pro",
+  "model": "mimo-v2.6-pro",
+  "tasks": [
+    "enem_challenge",
+    "oab_exams",
+    "bluex",
+    "assin2_rte",
+    "hatebr_offensive"
+  ],
+  "limit": 10,
+  "num_fewshot": 3,
+  "timestamp": "2026-09-25 12:34:31",
+  "duration_seconds": 2.8,
+  "status": "completed",
+  "is_simulation": true,
+  "metrics": {
+    "overall_accuracy": 80.0,
+    "total_samples": 10,
+    "tasks_evaluated": [
+      "enem_challenge",
+      "oab_exams",
+      "bluex",
+      "assin2_rte",
+      "hatebr_offensive"
+    ]
+  },
+  "questions": [
+    {
+      "id": "enem_challenge_1",
+      "index": 0,
+      "task": "enem_challenge",
+      "question": "Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 44,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "enem_challenge_2",
+      "index": 1,
+      "task": "enem_challenge",
+      "question": "Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 36,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "enem_challenge_3",
+      "index": 2,
+      "task": "enem_challenge",
+      "question": "A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "enem_challenge_4",
+      "index": 3,
+      "task": "enem_challenge",
+      "question": "No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 34,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "oab_exams_5",
+      "index": 4,
+      "task": "oab_exams",
+      "question": "Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "oab_exams_6",
+      "index": 5,
+      "task": "oab_exams",
+      "question": "Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 23,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_7",
+      "index": 6,
+      "task": "oab_exams",
+      "question": "Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 32,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_8",
+      "index": 7,
+      "task": "bluex",
+      "question": "Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_9",
+      "index": 8,
+      "task": "assin2_rte",
+      "question": "Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": false,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "tweetsentbr_10",
+      "index": 9,
+      "task": "tweetsentbr",
+      "question": "Classifique o sentimento do tweet: 'Não aguento mais esperar pelo suporte dessa empresa, já faz três semanas sem resposta!'",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Positivo"
+        },
+        {
+          "label": "B",
+          "text": "Neutro"
+        },
+        {
+          "label": "C",
+          "text": "Negativo"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Análise de Sentimentos em Redes Sociais",
+      "has_negation": true,
+      "word_count": 19,
+      "explanation": "O tweet expressa insatisfação e frustração com o atendimento, portanto tom Negativo."
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 10,
+      "correct": 8,
+      "wrong": 2,
+      "accuracy": 80.0
+    },
+    "categories": [
+      {
+        "category": "Semântica e Reconhecimento de Implicação Textual",
+        "total": 1,
+        "correct": 0,
+        "wrong": 1,
+        "accuracy": 0.0
+      },
+      {
+        "category": "Ciências da Natureza (Física, Química, Biologia)",
+        "total": 2,
+        "correct": 1,
+        "wrong": 1,
+        "accuracy": 50.0
+      },
+      {
+        "category": "Matemática e Exatas",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ciências Humanas (História, Geografia, Filosofia)",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Linguagens e Códigos",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Constitucional & Teoria do Estado",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Penal & Processo Penal",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ética Profissional OAB",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Análise de Sentimentos em Redes Sociais",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "prompt_engineering",
+        "severity": "medium",
+        "title": "Atenção a Enunciados com Negação (INCORRETO / EXCETO)",
+        "description": "A LLM acertou apenas 66.7% das questões contendo termos como 'NÃO', 'EXCETO' ou 'INCORRETO' (contra 80.0% na média geral). Modelos frequentemente sofrem com viés de confirmação selecionando a primeira alternativa verdadeira.",
+        "recommendation": "Inclua no prompt do sistema uma instrução enfática: 'Preste atenção estrita a palavras de negação como INCORRETO, EXCETO ou NÃO no enunciado antes de selecionar a alternativa'."
+      },
+      {
+        "type": "fine_tuning_rag",
+        "severity": "high",
+        "title": "Dificuldade Crítica em: Ciências da Natureza (Física, Química, Biologia)",
+        "description": "O modelo apresentou apenas 50.0% de acerto nesta área (1 erros de 2 questões).",
+        "recommendation": "Recomenda-se integrar RAG (Retrieval-Augmented Generation) com base de conhecimento especializada em Ciências da Natureza (Física, Química, Biologia) ou realizar fine-tuning direcionado (LoRA/SFT) com bancos de questões dessa matéria."
+      },
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Adoção de Raciocínio Passo a Passo (Chain-of-Thought)",
+        "description": "Atualmente o modelo responde diretamente a letra da alternativa. Para problemas que exigem dedução em múltiplos passos, o raciocínio explícito reduz erros dedutivos.",
+        "recommendation": "Altere o formato de resposta para solicitar uma breve justificativa em 2 linhas antes de indicar a letra final no formato 'Resposta: [LETRA]'."
+      }
+    ]
+  }
+}

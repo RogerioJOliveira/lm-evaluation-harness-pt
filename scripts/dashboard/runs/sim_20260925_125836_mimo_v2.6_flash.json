@@ -1,0 +1,173 @@
+{
+  "id": "sim_20260925_125836_mimo_v2.6_flash",
+  "model": "mimo-v2.6-flash",
+  "tasks": [
+    "enem_challenge"
+  ],
+  "limit": 3,
+  "num_fewshot": 0,
+  "timestamp": "2026-09-25 12:58:37",
+  "duration_seconds": 1.5,
+  "status": "completed",
+  "is_simulation": true,
+  "metrics": {
+    "overall_accuracy": 66.67,
+    "total_samples": 3,
+    "tasks_evaluated": [
+      "enem_challenge"
+    ]
+  },
+  "questions": [
+    {
+      "id": "enem_challenge_1",
+      "index": 0,
+      "task": "enem_challenge",
+      "question": "Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 44,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "enem_challenge_2",
+      "index": 1,
+      "task": "enem_challenge",
+      "question": "Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 36,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "enem_challenge_3",
+      "index": 2,
+      "task": "enem_challenge",
+      "question": "A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": false,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 3,
+      "correct": 2,
+      "wrong": 1,
+      "accuracy": 66.67
+    },
+    "categories": [
+      {
+        "category": "Ciências Humanas (História, Geografia, Filosofia)",
+        "total": 1,
+        "correct": 0,
+        "wrong": 1,
+        "accuracy": 0.0
+      },
+      {
+        "category": "Matemática e Exatas",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ciências da Natureza (Física, Química, Biologia)",
+        "total": 1,
+        "correct": 1,
+        "wrong": 0,
+        "accuracy": 100.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Adoção de Raciocínio Passo a Passo (Chain-of-Thought)",
+        "description": "Atualmente o modelo responde diretamente a letra da alternativa. Para problemas que exigem dedução em múltiplos passos, o raciocínio explícito reduz erros dedutivos.",
+        "recommendation": "Altere o formato de resposta para solicitar uma breve justificativa em 2 linhas antes de indicar a letra final no formato 'Resposta: [LETRA]'."
+      }
+    ]
+  }
+}

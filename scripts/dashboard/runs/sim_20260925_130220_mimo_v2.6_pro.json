@@ -1,0 +1,3521 @@
+{
+  "id": "sim_20260925_130220_mimo_v2.6_pro",
+  "model": "mimo-v2.6-pro",
+  "tasks": [
+    "enem_challenge",
+    "oab_exams",
+    "bluex",
+    "assin2_rte",
+    "hatebr_offensive"
+  ],
+  "limit": 100,
+  "num_fewshot": 3,
+  "timestamp": "2026-09-25 13:02:23",
+  "duration_seconds": 3.3,
+  "status": "completed",
+  "is_simulation": true,
+  "metrics": {
+    "overall_accuracy": 83.0,
+    "total_samples": 100,
+    "tasks_evaluated": [
+      "enem_challenge",
+      "oab_exams",
+      "bluex",
+      "assin2_rte",
+      "hatebr_offensive"
+    ]
+  },
+  "questions": [
+    {
+      "id": "enem_challenge_1",
+      "index": 0,
+      "task": "enem_challenge",
+      "question": "Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 44,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_2",
+      "index": 1,
+      "task": "oab_exams",
+      "question": "Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 36,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_3",
+      "index": 2,
+      "task": "bluex",
+      "question": "A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_4",
+      "index": 3,
+      "task": "assin2_rte",
+      "question": "No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 34,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_5",
+      "index": 4,
+      "task": "hatebr_offensive",
+      "question": "Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_6",
+      "index": 5,
+      "task": "enem_challenge",
+      "question": "Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 23,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_7",
+      "index": 6,
+      "task": "oab_exams",
+      "question": "Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 32,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_8",
+      "index": 7,
+      "task": "bluex",
+      "question": "Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_9",
+      "index": 8,
+      "task": "assin2_rte",
+      "question": "Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": false,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_10",
+      "index": 9,
+      "task": "hatebr_offensive",
+      "question": "Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_11",
+      "index": 10,
+      "task": "enem_challenge",
+      "question": "A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 24,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_12",
+      "index": 11,
+      "task": "oab_exams",
+      "question": "Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 23,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_13",
+      "index": 12,
+      "task": "bluex",
+      "question": "O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 22,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_14",
+      "index": 13,
+      "task": "assin2_rte",
+      "question": "A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 18,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_15",
+      "index": 14,
+      "task": "hatebr_offensive",
+      "question": "Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_16",
+      "index": 15,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #16] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_17",
+      "index": 16,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #17] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_18",
+      "index": 17,
+      "task": "bluex",
+      "question": "[BLUEX Item #18] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_19",
+      "index": 18,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #19] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_20",
+      "index": 19,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #20] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_21",
+      "index": 20,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #21] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_22",
+      "index": 21,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #22] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_23",
+      "index": 22,
+      "task": "bluex",
+      "question": "[BLUEX Item #23] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_24",
+      "index": 23,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #24] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": true,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_25",
+      "index": 24,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #25] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_26",
+      "index": 25,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #26] A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_27",
+      "index": 26,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #27] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_28",
+      "index": 27,
+      "task": "bluex",
+      "question": "[BLUEX Item #28] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_29",
+      "index": 28,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #29] A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 21,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_30",
+      "index": 29,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #30] Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_31",
+      "index": 30,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #31] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_32",
+      "index": 31,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #32] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_33",
+      "index": 32,
+      "task": "bluex",
+      "question": "[BLUEX Item #33] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_34",
+      "index": 33,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #34] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_35",
+      "index": 34,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #35] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_36",
+      "index": 35,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #36] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_37",
+      "index": 36,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #37] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_38",
+      "index": 37,
+      "task": "bluex",
+      "question": "[BLUEX Item #38] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_39",
+      "index": 38,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #39] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": false,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_40",
+      "index": 39,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #40] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_41",
+      "index": 40,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #41] A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_42",
+      "index": 41,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #42] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_43",
+      "index": 42,
+      "task": "bluex",
+      "question": "[BLUEX Item #43] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_44",
+      "index": 43,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #44] A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 21,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_45",
+      "index": 44,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #45] Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_46",
+      "index": 45,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #46] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_47",
+      "index": 46,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #47] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_48",
+      "index": 47,
+      "task": "bluex",
+      "question": "[BLUEX Item #48] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_49",
+      "index": 48,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #49] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_50",
+      "index": 49,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #50] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_51",
+      "index": 50,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #51] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_52",
+      "index": 51,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #52] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_53",
+      "index": 52,
+      "task": "bluex",
+      "question": "[BLUEX Item #53] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_54",
+      "index": 53,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #54] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": true,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_55",
+      "index": 54,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #55] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_56",
+      "index": 55,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #56] A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_57",
+      "index": 56,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #57] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_58",
+      "index": 57,
+      "task": "bluex",
+      "question": "[BLUEX Item #58] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_59",
+      "index": 58,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #59] A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 21,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_60",
+      "index": 59,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #60] Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_61",
+      "index": 60,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #61] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_62",
+      "index": 61,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #62] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_63",
+      "index": 62,
+      "task": "bluex",
+      "question": "[BLUEX Item #63] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_64",
+      "index": 63,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #64] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_65",
+      "index": 64,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #65] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_66",
+      "index": 65,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #66] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_67",
+      "index": 66,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #67] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_68",
+      "index": 67,
+      "task": "bluex",
+      "question": "[BLUEX Item #68] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_69",
+      "index": 68,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #69] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": false,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_70",
+      "index": 69,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #70] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_71",
+      "index": 70,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #71] A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_72",
+      "index": 71,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #72] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_73",
+      "index": 72,
+      "task": "bluex",
+      "question": "[BLUEX Item #73] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_74",
+      "index": 73,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #74] A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 21,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_75",
+      "index": 74,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #75] Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_76",
+      "index": 75,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #76] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_77",
+      "index": 76,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #77] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_78",
+      "index": 77,
+      "task": "bluex",
+      "question": "[BLUEX Item #78] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_79",
+      "index": 78,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #79] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_80",
+      "index": 79,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #80] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_81",
+      "index": 80,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #81] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": false,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_82",
+      "index": 81,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #82] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_83",
+      "index": 82,
+      "task": "bluex",
+      "question": "[BLUEX Item #83] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_84",
+      "index": 83,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #84] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": true,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_85",
+      "index": 84,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #85] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    },
+    {
+      "id": "enem_challenge_86",
+      "index": 85,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #86] A fermentação lática ocorre nas células musculares humanas durante exercícios anaeróbicos intensos. O acúmulo temporário de qual substância está associado à fadiga muscular passageira?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Etanol"
+        },
+        {
+          "label": "B",
+          "text": "Ácido Lático (Lactato)"
+        },
+        {
+          "label": "C",
+          "text": "Ácido Cítrico"
+        },
+        {
+          "label": "D",
+          "text": "Glicerol"
+        },
+        {
+          "label": "E",
+          "text": "Glicogênio"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 27,
+      "explanation": "O lactato acumula-se quando a demanda por oxigênio supera a capacidade mitocondrial na via anaeróbia."
+    },
+    {
+      "id": "oab_exams_87",
+      "index": 86,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #87] Segundo o Código Civil brasileiro, o negócio jurídico celebrado por pessoa relativamente incapaz sem a devida assistência de seu representante legal é considerado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Nulo de pleno direito"
+        },
+        {
+          "label": "B",
+          "text": "Anulável"
+        },
+        {
+          "label": "C",
+          "text": "Inexistente"
+        },
+        {
+          "label": "D",
+          "text": "Válido e eficaz imediatamente"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "A",
+      "model_answer": "A",
+      "is_correct": false,
+      "category": "Direito Civil & Processo Civil",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "Art. 171, I do Código Civil: é anulável o negócio jurídico por incapacidade relativa do agente."
+    },
+    {
+      "id": "bluex_88",
+      "index": 87,
+      "task": "bluex",
+      "question": "[BLUEX Item #88] O princípio da Administração Pública que exige tratamento impessoal e isonômico a todos os administrados, vedando autopromoção de agentes públicos, é o:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Princípio da Legalidade"
+        },
+        {
+          "label": "B",
+          "text": "Princípio da Impessoalidade"
+        },
+        {
+          "label": "C",
+          "text": "Princípio da Autotutela"
+        },
+        {
+          "label": "D",
+          "text": "Princípio da Continuidade do Serviço"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Administrativo",
+      "has_negation": false,
+      "word_count": 25,
+      "explanation": "Art. 37, caput e §1º da CF/88 consagra o princípio da impessoalidade e a vedação à promoção pessoal."
+    },
+    {
+      "id": "assin2_rte_89",
+      "index": 88,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #89] A Batalha de Guararapes (1648-1649), ocorrida em Pernambuco, teve papel fundamental na história colonial brasileira porque culminou em:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Na independência definitiva do Brasil perante Portugal"
+        },
+        {
+          "label": "B",
+          "text": "Na expulsão dos invasores holandeses e sentimento nativista"
+        },
+        {
+          "label": "C",
+          "text": "No início do ciclo do ouro em Minas Gerais"
+        },
+        {
+          "label": "D",
+          "text": "Na proclamação da República de Palmares"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 21,
+      "explanation": "As Batalhas dos Guararapes foram decisivas para derrotar os holandeses e marcaram as origens do Exército Brasileiro."
+    },
+    {
+      "id": "hatebr_offensive_90",
+      "index": 89,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #90] Analise o comentário de rede social sob as diretrizes de moderação:\n'Discordo completamente da opinião do colunista sobre economia, os dados apresentados carecem de fontes confiáveis.'\nClassificação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Discurso de Ódio Ofensivo"
+        },
+        {
+          "label": "B",
+          "text": "Crítica Legítima / Não Ofensivo"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Classificação de Discurso Tóxico",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "O comentário expressa discordância respeitosa sem ataques pessoais, xingamentos ou ódio."
+    },
+    {
+      "id": "enem_challenge_91",
+      "index": 90,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #91] Um produtor de café contratou uma empresa de logística para transportar sua safra. A empresa cobra uma taxa fixa de R$ 500,00 mais R$ 2,50 por quilômetro rodado. Para um trajeto de 320 km, qual será o valor total a ser pago pelo transporte?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "R$ 1.100,00"
+        },
+        {
+          "label": "B",
+          "text": "R$ 1.250,00"
+        },
+        {
+          "label": "C",
+          "text": "R$ 1.300,00"
+        },
+        {
+          "label": "D",
+          "text": "R$ 1.450,00"
+        },
+        {
+          "label": "E",
+          "text": "R$ 1.500,00"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 47,
+      "explanation": "Cálculo: 500 + (2.50 * 320) = 500 + 800 = 1300."
+    },
+    {
+      "id": "oab_exams_92",
+      "index": 91,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #92] Durante a fotossíntese nas plantas terrestres, a fase clara ocorre nos tilacoides e resulta na liberação de oxigênio proveniente da quebra da molécula de água. Qual dos seguintes compostos NÃO participa diretamente do ciclo de Calvin?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "ATP"
+        },
+        {
+          "label": "B",
+          "text": "NADPH"
+        },
+        {
+          "label": "C",
+          "text": "CO2"
+        },
+        {
+          "label": "D",
+          "text": "Ribulose-1,5-bisfosfato"
+        },
+        {
+          "label": "E",
+          "text": "Clorofila a"
+        }
+      ],
+      "gold": "E",
+      "gold_answer": "E",
+      "model_choice": "E",
+      "model_answer": "E",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": true,
+      "word_count": 39,
+      "explanation": "A clorofila atua diretamente na fase fotoquímica nos tilacoides e não no ciclo de Calvin no estroma."
+    },
+    {
+      "id": "bluex_93",
+      "index": 92,
+      "task": "bluex",
+      "question": "[BLUEX Item #93] A Constituição brasileira de 1988, conhecida como a Constituição Cidadã, representou o marco da redemocratização após o regime militar. Entre suas principais inovações sociais, destaca-se:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "A extinção do sufrágio universal para analfabetos"
+        },
+        {
+          "label": "B",
+          "text": "A criação do Sistema Único de Saúde (SUS) e universalização do acesso"
+        },
+        {
+          "label": "C",
+          "text": "A censura prévia institucionalizada para meios de comunicação"
+        },
+        {
+          "label": "D",
+          "text": "A revogação do habeas corpus em crimes políticos"
+        },
+        {
+          "label": "E",
+          "text": "O mandato presidencial vitalício"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "D",
+      "model_answer": "D",
+      "is_correct": false,
+      "category": "Ciências Humanas (História, Geografia, Filosofia)",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "O artigo 196 instituiu a saúde como direito de todos e dever do Estado, viabilizando o SUS."
+    },
+    {
+      "id": "assin2_rte_94",
+      "index": 93,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #94] No poema modernista, a ruptura com o parnasianismo manifestou-se sobretudo pelo uso de versos livres e pela incorporação da fala coloquial. Assinale a alternativa que NÃO corresponde a uma característica do Modernismo de 1922:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Valorização do cotidiano nacional"
+        },
+        {
+          "label": "B",
+          "text": "Rigor métrico e rimas ricas obrigatórias"
+        },
+        {
+          "label": "C",
+          "text": "Ironia e humor crítico"
+        },
+        {
+          "label": "D",
+          "text": "Nacionalismo crítico e antropofagia cultural"
+        },
+        {
+          "label": "E",
+          "text": "Liberdade formal e estética"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Linguagens e Códigos",
+      "has_negation": true,
+      "word_count": 37,
+      "explanation": "O rigor métrico e rimas ricas eram característicos do Parnasianismo, justamente o movimento combatido."
+    },
+    {
+      "id": "hatebr_offensive_95",
+      "index": 94,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #95] Determinado Governador de Estado editou decreto regulamentando matéria sobre direito penal e processual penal. À luz da Constituição Federal de 1988, essa norma estadual é:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Constitucional, pois os Estados têm competência concorrente em matéria penal."
+        },
+        {
+          "label": "B",
+          "text": "Inconstitucional, pois legislar sobre direito penal é competência privativa da União."
+        },
+        {
+          "label": "C",
+          "text": "Válida temporariamente até a edição de lei federal em sentido contrário."
+        },
+        {
+          "label": "D",
+          "text": "Constitucional se referendada pela Assembleia Legislativa em 30 dias."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Constitucional & Teoria do Estado",
+      "has_negation": false,
+      "word_count": 28,
+      "explanation": "Artigo 22, I da CF/88 estabelece competência privativa da União para legislar sobre direito penal e processual."
+    },
+    {
+      "id": "enem_challenge_96",
+      "index": 95,
+      "task": "enem_challenge",
+      "question": "[ENEM_CHALLENGE Item #96] Tício subtraiu para si, mediante grave ameaça exercida com simulação de arma de fogo, um aparelho celular de Caio. Tipifica-se a conduta como:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Furto qualificado por fraude"
+        },
+        {
+          "label": "B",
+          "text": "Roubo simples consumado"
+        },
+        {
+          "label": "C",
+          "text": "Extorsão mediante sequestro"
+        },
+        {
+          "label": "D",
+          "text": "Apropriação indébita"
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Direito Penal & Processo Penal",
+      "has_negation": false,
+      "word_count": 26,
+      "explanation": "A grave ameaça (inclusive com simulacro de arma) configura o crime de roubo (art. 157 do CP), não furto."
+    },
+    {
+      "id": "oab_exams_97",
+      "index": 96,
+      "task": "oab_exams",
+      "question": "[OAB_EXAMS Item #97] Um advogado foi procurado por cliente para atuar em causa contra ex-empregador com quem manteve vínculo empregatício como advogado interno até dois meses atrás. Nos termos do Estatuto da OAB, o advogado:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Pode atuar livremente sem qualquer restrição temporal."
+        },
+        {
+          "label": "B",
+          "text": "Deve recusar o patrocínio por violar dever de sigilo e período de quarentena."
+        },
+        {
+          "label": "C",
+          "text": "Só pode atuar mediante expressa autorização do Tribunal de Justiça."
+        },
+        {
+          "label": "D",
+          "text": "Pode atuar caso cobre honorários abaixo da tabela da OAB."
+        }
+      ],
+      "gold": "B",
+      "gold_answer": "B",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": true,
+      "category": "Ética Profissional OAB",
+      "has_negation": false,
+      "word_count": 35,
+      "explanation": "O Código de Ética veda a advocacia contra ex-cliente/empregador recente por preservação de sigilo profissional."
+    },
+    {
+      "id": "bluex_98",
+      "index": 97,
+      "task": "bluex",
+      "question": "[BLUEX Item #98] Um corpo de massa 2 kg move-se em linha reta com aceleração constante de 3 m/s². Desprezando o atrito com o ar, a força resultante aplicada sobre o corpo é de:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "1,5 N"
+        },
+        {
+          "label": "B",
+          "text": "5,0 N"
+        },
+        {
+          "label": "C",
+          "text": "6,0 N"
+        },
+        {
+          "label": "D",
+          "text": "9,0 N"
+        },
+        {
+          "label": "E",
+          "text": "12,0 N"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Ciências da Natureza (Física, Química, Biologia)",
+      "has_negation": false,
+      "word_count": 34,
+      "explanation": "Pela Segunda Lei de Newton: F = m * a = 2 * 3 = 6 N."
+    },
+    {
+      "id": "assin2_rte_99",
+      "index": 98,
+      "task": "assin2_rte",
+      "question": "[ASSIN2_RTE Item #99] Texto 1: O presidente assinou o decreto de preservação ambiental na Amazônia.\nTexto 2: Foi firmado um ato oficial pelo chefe do executivo para proteção de florestas.\nRelação:",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Entailment (Implicação)"
+        },
+        {
+          "label": "B",
+          "text": "None (Não Implica)"
+        }
+      ],
+      "gold": "A",
+      "gold_answer": "A",
+      "model_choice": "B",
+      "model_answer": "B",
+      "is_correct": false,
+      "category": "Semântica e Reconhecimento de Implicação Textual",
+      "has_negation": false,
+      "word_count": 31,
+      "explanation": "O texto 2 é parafraseado semanticamente do texto 1, caracterizando implicação mútua."
+    },
+    {
+      "id": "hatebr_offensive_100",
+      "index": 99,
+      "task": "hatebr_offensive",
+      "question": "[HATEBR_OFFENSIVE Item #100] Em uma progressão aritmética (PA), o primeiro termo é a1 = 7 e a razão é r = 4. Qual é o 15º termo (a15) dessa progressão?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "55"
+        },
+        {
+          "label": "B",
+          "text": "59"
+        },
+        {
+          "label": "C",
+          "text": "63"
+        },
+        {
+          "label": "D",
+          "text": "67"
+        },
+        {
+          "label": "E",
+          "text": "71"
+        }
+      ],
+      "gold": "C",
+      "gold_answer": "C",
+      "model_choice": "C",
+      "model_answer": "C",
+      "is_correct": true,
+      "category": "Matemática e Exatas",
+      "has_negation": false,
+      "word_count": 30,
+      "explanation": "Fórmula do termo geral: a_n = a1 + (n - 1)*r -> a15 = 7 + (14 * 4) = 7 + 56 = 63."
+    }
+  ],
+  "diagnostics": {
+    "summary": {
+      "total": 100,
+      "correct": 83,
+      "wrong": 17,
+      "accuracy": 83.0
+    },
+    "categories": [
+      {
+        "category": "Semântica e Reconhecimento de Implicação Textual",
+        "total": 7,
+        "correct": 3,
+        "wrong": 4,
+        "accuracy": 42.9
+      },
+      {
+        "category": "Direito Civil & Processo Civil",
+        "total": 6,
+        "correct": 3,
+        "wrong": 3,
+        "accuracy": 50.0
+      },
+      {
+        "category": "Classificação de Discurso Tóxico",
+        "total": 6,
+        "correct": 3,
+        "wrong": 3,
+        "accuracy": 50.0
+      },
+      {
+        "category": "Direito Penal & Processo Penal",
+        "total": 7,
+        "correct": 4,
+        "wrong": 3,
+        "accuracy": 57.1
+      },
+      {
+        "category": "Ciências Humanas (História, Geografia, Filosofia)",
+        "total": 13,
+        "correct": 9,
+        "wrong": 4,
+        "accuracy": 69.2
+      },
+      {
+        "category": "Ciências da Natureza (Física, Química, Biologia)",
+        "total": 20,
+        "correct": 20,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Matemática e Exatas",
+        "total": 14,
+        "correct": 14,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Linguagens e Códigos",
+        "total": 7,
+        "correct": 7,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Constitucional & Teoria do Estado",
+        "total": 7,
+        "correct": 7,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Ética Profissional OAB",
+        "total": 7,
+        "correct": 7,
+        "wrong": 0,
+        "accuracy": 100.0
+      },
+      {
+        "category": "Direito Administrativo",
+        "total": 6,
+        "correct": 6,
+        "wrong": 0,
+        "accuracy": 100.0
+      }
+    ],
+    "suggestions": [
+      {
+        "type": "fine_tuning_rag",
+        "severity": "high",
+        "title": "Dificuldade Crítica em: Semântica e Reconhecimento de Implicação Textual",
+        "description": "O modelo apresentou apenas 42.9% de acerto nesta área (4 erros de 7 questões).",
+        "recommendation": "Recomenda-se integrar RAG (Retrieval-Augmented Generation) com base de conhecimento especializada em Semântica e Reconhecimento de Implicação Textual ou realizar fine-tuning direcionado (LoRA/SFT) com bancos de questões dessa matéria."
+      },
+      {
+        "type": "reasoning_cot",
+        "severity": "low",
+        "title": "Adoção de Raciocínio Passo a Passo (Chain-of-Thought)",
+        "description": "Atualmente o modelo responde diretamente a letra da alternativa. Para problemas que exigem dedução em múltiplos passos, o raciocínio explícito reduz erros dedutivos.",
+        "recommendation": "Altere o formato de resposta para solicitar uma breve justificativa em 2 linhas antes de indicar a letra final no formato 'Resposta: [LETRA]'."
+      }
+    ]
+  }
+}

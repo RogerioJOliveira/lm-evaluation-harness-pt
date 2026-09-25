@@ -155,6 +155,28 @@ def test_frontend_index_served():
     assert "Open Portuguese LLM Benchmark" in response.text
 
 
+def test_system_config_endpoint():
+    """Valida o endpoint de consulta de configuração do ambiente."""
+    response = client.get("/api/config")
+    assert response.status_code == 200
+    data = response.json()
+    assert "default_base_url" in data
+    assert "has_env_key" in data
+
+
+def test_quick_connection_endpoint():
+    """Valida o endpoint de teste rápido de conexão à API."""
+    # Teste com chave vazia deve retornar success=False com mensagem amigável
+    res_empty = client.post("/api/test-connection", json={
+        "base_url": "https://api.xiaomimimo.com/v1",
+        "api_key": "",
+        "model": "mimo-v2.6-flash"
+    })
+    assert res_empty.status_code == 200
+    data_empty = res_empty.json()
+    assert "success" in data_empty
+
+
 if __name__ == "__main__":
     print("▶ Executando test_leaderboard_endpoint()...")
     test_leaderboard_endpoint()
@@ -171,6 +193,14 @@ if __name__ == "__main__":
     print("▶ Executando test_simulation_run_execution()...")
     test_simulation_run_execution()
     print("✔ Simulation Run Execution OK!")
+
+    print("▶ Executando test_system_config_endpoint()...")
+    test_system_config_endpoint()
+    print("✔ System Config OK!")
+
+    print("▶ Executando test_quick_connection_endpoint()...")
+    test_quick_connection_endpoint()
+    print("✔ Quick Connection OK!")
 
     print("▶ Executando test_frontend_index_served()...")
     test_frontend_index_served()

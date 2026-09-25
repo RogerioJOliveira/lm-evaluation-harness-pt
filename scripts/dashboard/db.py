@@ -221,19 +221,39 @@ def get_run_by_id_from_db(run_id: str) -> Optional[Dict[str, Any]]:
     """, (run_id,))
     q_rows = cursor.fetchall()
 
+    import re
     questions = []
-    for q in q_rows:
+    for idx, q in enumerate(q_rows):
+        choices_data = json.loads(q["choices_json"]) if q["choices_json"] else []
+        gold = q["gold_choice"] or ""
+        model_choice = q["model_choice"] or ""
+        q_text = q["question_text"] or ""
+        has_neg = bool(re.search(r"\b(não|incorret[ao]|exceto|fals[ao]|errad[ao]|inadequad[ao])\b", q_text.lower()))
+
         questions.append({
             "id": q["question_id"],
+            "index": idx,
             "task": q["task"],
             "category": q["category"],
-            "question": q["question_text"],
-            "choices": json.loads(q["choices_json"]) if q["choices_json"] else [],
-            "gold": q["gold_choice"],
-            "model_choice": q["model_choice"],
+            "question": q_text,
+            "choices": choices_data,
+            "gold": gold,
+            "gold_answer": gold,
+            "model_choice": model_choice,
+            "model_answer": model_choice,
             "is_correct": bool(q["is_correct"]),
-            "explanation": q["explanation"]
+            "explanation": q["explanation"] or "",
+            "has_negation": has_neg,
+            "word_count": len(q_text.split())
         })
+
+    diag_data = json.loads(run_row["diagnostics_json"]) if run_row["diagnostics_json"] else {}
+    if (not diag_data.get("categories") or len(diag_data.get("categories", [])) == 0) and questions:
+        try:
+            from scripts.dashboard.diagnostics import analyze_diagnostics
+            diag_data = analyze_diagnostics(questions)
+        except Exception:
+            pass
 
     run_dict = {
         "id": run_row["id"],
@@ -246,7 +266,7 @@ def get_run_by_id_from_db(run_id: str) -> Optional[Dict[str, Any]]:
         "status": run_row["status"],
         "is_simulation": bool(run_row["is_simulation"]),
         "metrics": json.loads(run_row["metrics_json"]) if run_row["metrics_json"] else {},
-        "diagnostics": json.loads(run_row["diagnostics_json"]) if run_row["diagnostics_json"] else {},
+        "diagnostics": diag_data,
         "questions": questions
     }
 
@@ -272,3 +292,119 @@ def delete_run_from_db(run_id: str) -> bool:
             pass
 
     return True
+
+
+def get_dynamic_leaderboard(base_leaderboard: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Mescla os dados oficiais de referência com os modelos avaliados salvos no SQLite."""
+    init_db()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    # Pega todos os runs concluídos com acurácia válida
+    cursor.execute("""
+    SELECT id, model, accuracy, total_questions, is_simulation, timestamp
+    FROM runs
+    WHERE status = 'completed' AND accuracy IS NOT NULL
+    ORDER BY timestamp DESC
+    """)
+    runs = cursor.fetchall()
+
+    # Dicionário de tarefas oficiais e suas chaves no leaderboard
+    task_key_map = {
+        "enem_challenge": "enem",
+        "enem": "enem",
+        "bluex": "bluex",
+        "oab_exams": "oab",
+        "oab": "oab",
+        "assin2_rte": "assin2_rte",
+        "assin2_sts": "assin2_sts",
+        "faquad_nli": "faquad_nli",
+        "hatebr_offensive": "hatebr",
+        "hatebr": "hatebr",
+        "pt_hate_speech": "pt_hate_speech",
+        "tweetsentbr": "tweetsentbr"
+    }
+
+    # Agrupa pelo modelo mais recente ou melhor avaliado
+    custom_models_map = {}
+    for r in runs:
+        m_name = r["model"]
+        if m_name in custom_models_map:
+            continue  # já pegamos o mais recente
+
+        run_id = r["id"]
+        # Calcula acurácia por tarefa nas questões dessa rodada
+        cursor.execute("""
+        SELECT task, AVG(is_correct) * 100.0 as task_acc, COUNT(*) as cnt
+        FROM questions
+        WHERE run_id = ?
+        GROUP BY task
+        """, (run_id,))
+        task_rows = cursor.fetchall()
+
+        task_scores = {}
+        for tr in task_rows:
+            t_name = tr["task"]
+            col_key = task_key_map.get(t_name, t_name)
+            task_scores[col_key] = round(tr["task_acc"], 2)
+
+        # Determina provedor amigável
+        m_lower = m_name.lower()
+        if "mimo" in m_lower or "xiaomi" in m_lower:
+            provider = "Xiaomi (Avaliado no SQLite)"
+        elif "gpt" in m_lower or "openai" in m_lower:
+            provider = "OpenAI (Avaliado no SQLite)"
+        elif "claude" in m_lower or "anthropic" in m_lower:
+            provider = "Anthropic (Avaliado no SQLite)"
+        elif "gemini" in m_lower or "google" in m_lower:
+            provider = "Google (Avaliado no SQLite)"
+        else:
+            provider = "Execução Local (SQLite)"
+
+        # Normaliza nome para exibição bonita
+        display_name = m_name
+        if "mimo-v2.6-pro" in m_lower:
+            display_name = "Xiaomi MIMO v2.6 Pro"
+        elif "mimo-v2.6-flash" in m_lower:
+            display_name = "Xiaomi MIMO v2.6 Flash"
+
+        mode_tag = "⚡" if r["is_simulation"] else "🌐"
+        
+        custom_entry = {
+            "model": f"{mode_tag} {display_name}",
+            "provider": provider,
+            "average": round(r["accuracy"], 2),
+            "enem": task_scores.get("enem"),
+            "bluex": task_scores.get("bluex"),
+            "oab": task_scores.get("oab"),
+            "assin2_rte": task_scores.get("assin2_rte"),
+            "assin2_sts": task_scores.get("assin2_sts"),
+            "faquad_nli": task_scores.get("faquad_nli"),
+            "hatebr": task_scores.get("hatebr"),
+            "pt_hate_speech": task_scores.get("pt_hate_speech"),
+            "tweetsentbr": task_scores.get("tweetsentbr"),
+            "is_custom": True,
+            "run_id": run_id,
+            "timestamp": r["timestamp"],
+            "total_questions": r["total_questions"]
+        }
+        custom_models_map[m_name] = custom_entry
+
+    conn.close()
+
+    # Copia a lista base
+    import copy
+    merged = [copy.deepcopy(item) for item in base_leaderboard]
+
+    # Adiciona os modelos avaliados no SQLite
+    for m_entry in custom_models_map.values():
+        merged.append(m_entry)
+
+    # Ordena pelo average decrescente
+    merged.sort(key=lambda x: x.get("average", 0.0), reverse=True)
+
+    # Reatribui ranks (1, 2, 3...)
+    for rank_idx, item in enumerate(merged, start=1):
+        item["rank"] = rank_idx
+
+    return merged

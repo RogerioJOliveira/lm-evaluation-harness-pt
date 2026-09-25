@@ -125,21 +125,21 @@
           <div class="grid grid-cols-3 gap-4 mt-6 pt-4 border-t border-gray-800">
             <div>
               <span class="text-xs text-gray-500">Líder Geral</span>
-              <p class="text-base font-bold text-amber-400 flex items-center gap-1">
+              <p id="lbTopModelName" class="text-base font-bold text-amber-400 flex items-center gap-1">
                 <i data-lucide="crown" class="w-4 h-4"></i> Gemini 2.5 Pro
               </p>
-              <span class="text-xs text-gray-400">88.37% Méd.</span>
+              <span id="lbTopModelScore" class="text-xs text-gray-400">88.37% Méd.</span>
             </div>
             <div>
               <span class="text-xs text-gray-500">Nosso Modelo Testado</span>
-              <p class="text-base font-bold text-indigo-400 flex items-center gap-1">
+              <p id="lbCustomModelName" class="text-base font-bold text-indigo-400 flex items-center gap-1">
                 <i data-lucide="zap" class="w-4 h-4"></i> MIMO v2.6 Flash
               </p>
-              <span class="text-xs text-emerald-400 font-medium">84.15% (4º Lugar)</span>
+              <span id="lbCustomModelScore" class="text-xs text-emerald-400 font-medium">84.15% (4º Lugar)</span>
             </div>
             <div>
               <span class="text-xs text-gray-500">Total de Modelos</span>
-              <p class="text-base font-bold text-white">12 Avaliados</p>
+              <p id="lbTotalModelsCount" class="text-base font-bold text-white">12 Avaliados</p>
               <span class="text-xs text-gray-400">9 Benchmarks</span>
             </div>
           </div>
@@ -207,6 +207,52 @@
             <h3 class="text-base font-bold text-white">Configurar Nova Avaliação</h3>
           </div>
 
+          <!-- Card de Configuração da API & Teste Rápido -->
+          <div class="bg-gray-900/90 border border-indigo-500/30 rounded-xl p-4 space-y-3 relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="key" class="w-3.5 h-3.5 text-indigo-400"></i> Configuração da API & Teste Rápido
+              </span>
+              <span id="envKeyStatusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
+                Carregando .env...
+              </span>
+            </div>
+
+            <!-- Base URL -->
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-[11px] font-medium text-gray-400">Endpoint Base URL</label>
+                <div class="flex space-x-1">
+                  <button type="button" onclick="setBaseUrlPreset('https://api.xiaomimimo.com/v1', 'mimo-v2.6-flash')" class="text-[10px] text-indigo-400 hover:text-indigo-300 bg-indigo-950/40 px-1.5 py-0.5 rounded border border-indigo-500/20">MIMO</button>
+                  <button type="button" onclick="setBaseUrlPreset('https://api.openai.com/v1', 'gpt-4o-mini')" class="text-[10px] text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 px-1.5 py-0.5 rounded border border-emerald-500/20">OpenAI</button>
+                </div>
+              </div>
+              <input type="text" id="configBaseUrl" placeholder="https://api.xiaomimimo.com/v1" class="w-full p-2 text-xs rounded-lg bg-gray-950 border border-gray-800 text-gray-200 focus:outline-none focus:border-indigo-500">
+            </div>
+
+            <!-- API Key -->
+            <div>
+              <label class="block text-[11px] font-medium text-gray-400 mb-1">API Key</label>
+              <div class="relative">
+                <input type="password" id="configApiKey" placeholder="Deixe em branco para usar chave do .env" class="w-full p-2 pr-8 text-xs rounded-lg bg-gray-950 border border-gray-800 text-gray-200 focus:outline-none focus:border-indigo-500">
+                <button type="button" onclick="toggleApiKeyVisibility()" class="absolute right-2.5 top-2 text-gray-500 hover:text-gray-300" title="Mostrar/Ocultar chave">
+                  <i data-lucide="eye" id="eyeIcon" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Botão de Teste Rápido -->
+            <div class="pt-1">
+              <button type="button" onclick="runQuickApiTest()" id="btnQuickTest" class="w-full py-2 px-3 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500/40 text-indigo-300 hover:text-white text-xs font-semibold transition flex items-center justify-center space-x-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                <span>Testar Conexão Rápida</span>
+              </button>
+            </div>
+
+            <!-- Feedback do Teste Rápido -->
+            <div id="quickTestFeedback" class="hidden text-xs rounded-lg p-2.5 border transition"></div>
+          </div>
+
           <!-- Modo de Execução: Híbrido (Simulação vs Real) -->
           <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-3 space-y-2">
             <span class="text-xs font-semibold text-indigo-300 flex items-center gap-1.5">
@@ -230,16 +276,35 @@
             </div>
           </div>
 
-          <!-- Seleção de Modelo -->
+          <!-- Seleção de Modelo com Salvamento de Modelos Personalizados -->
           <div>
-            <label class="block text-xs font-medium text-gray-400 mb-1.5">Modelo LLM</label>
-            <select id="runnerModel" onchange="toggleCustomModelInput(this.value)" class="w-full p-2.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-white focus:outline-none focus:border-indigo-500">
-              <option value="mimo-v2.6-flash" selected>mimo-v2.6-flash (Xiaomi MIMO)</option>
-              <option value="gpt-4o">gpt-4o (OpenAI)</option>
-              <option value="gpt-4o-mini">gpt-4o-mini (OpenAI)</option>
-              <option value="custom">Outro (Inserir manualmente)</option>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="block text-xs font-medium text-gray-400">Modelo LLM</label>
+              <span id="savedModelsCountBadge" class="text-[10px] text-indigo-400 font-mono hidden"></span>
+            </div>
+            <select id="runnerModel" onchange="handleModelSelectChange(this.value)" class="w-full p-2.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-white focus:outline-none focus:border-indigo-500">
+              <optgroup label="Modelos Padrão">
+                <option value="mimo-v2.6-flash" selected>mimo-v2.6-flash (Xiaomi MIMO)</option>
+                <option value="mimo-v2.6-pro">mimo-v2.6-pro (Xiaomi MIMO)</option>
+                <option value="gpt-4o">gpt-4o (OpenAI)</option>
+                <option value="gpt-4o-mini">gpt-4o-mini (OpenAI)</option>
+              </optgroup>
+              <optgroup id="savedModelsOptGroup" label="⭐ Modelos Salvos para Reuso">
+                <!-- Inseridos dinamicamente do localStorage -->
+              </optgroup>
+              <option value="custom">➕ Outro (Inserir manualmente e gravar)</option>
             </select>
-            <input type="text" id="runnerCustomModel" placeholder="Digite o nome do modelo (ex: meta-llama/Llama-3-8B)" class="w-full mt-2 p-2 rounded-lg bg-gray-900 border border-gray-800 text-xs text-white hidden focus:outline-none focus:border-indigo-500">
+            
+            <!-- Campo para Inserir e Salvar Modelo Manual -->
+            <div id="customModelContainer" class="mt-2 space-y-1.5 hidden">
+              <div class="flex gap-2">
+                <input type="text" id="runnerCustomModel" placeholder="Digite o nome do modelo (ex: mimo-v2.6-pro)" class="flex-1 p-2 rounded-lg bg-gray-900 border border-indigo-500/50 text-xs text-white focus:outline-none focus:border-indigo-400">
+                <button type="button" onclick="saveManualModel()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-1 shadow transition">
+                  <i data-lucide="bookmark-plus" class="w-3.5 h-3.5"></i> Gravar na Lista
+                </button>
+              </div>
+              <p class="text-[10px] text-indigo-300/80">O modelo digitado será salvo automaticamente para você reusar quando quiser.</p>
+            </div>
           </div>
 
           <!-- Seleção de Tarefas -->
@@ -344,24 +409,36 @@
     <!-- VIEW 3: INSPETOR DE QUESTÕES (ACERTOS/ERROS)-->
     <!-- ========================================== -->
     <section id="view-questions" class="space-y-6 hidden animate-fade-in">
-      <!-- KPI Stats Bar -->
+      <!-- KPI Stats Bar (Clicáveis para filtrar diretamente) -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="glass-panel p-4 rounded-xl">
-          <span class="text-xs text-gray-400 font-medium">Total de Questões</span>
+        <div onclick="setQuestionFilter('all')" id="kpiCardTotal" class="glass-panel p-4 rounded-xl cursor-pointer hover:border-indigo-500/50 hover:bg-indigo-950/20 transition group select-none" title="Clique para ver TODAS as questões">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-gray-400 font-medium group-hover:text-indigo-300">Total de Questões</span>
+            <span class="text-[9px] text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded font-mono">Ver Todas</span>
+          </div>
           <p id="kpiTotal" class="text-2xl font-bold text-white mt-1">0</p>
         </div>
-        <div class="glass-panel p-4 rounded-xl border-emerald-500/20">
-          <span class="text-xs text-emerald-400 font-medium flex items-center gap-1">
-            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Acertos
-          </span>
+        
+        <div onclick="setQuestionFilter('correct')" id="kpiCardCorrect" class="glass-panel p-4 rounded-xl border-emerald-500/20 cursor-pointer hover:border-emerald-500/60 hover:bg-emerald-950/20 transition group select-none" title="Clique para filtrar apenas ACERTOS">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-emerald-400 font-medium flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Acertos
+            </span>
+            <span class="text-[9px] text-emerald-400 bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 rounded">Filtrar 🟢</span>
+          </div>
           <p id="kpiCorrect" class="text-2xl font-bold text-emerald-400 mt-1">0</p>
         </div>
-        <div class="glass-panel p-4 rounded-xl border-rose-500/20">
-          <span class="text-xs text-rose-400 font-medium flex items-center gap-1">
-            <i data-lucide="x-circle" class="w-3.5 h-3.5"></i> Erros
-          </span>
+        
+        <div onclick="setQuestionFilter('wrong')" id="kpiCardWrong" class="glass-panel p-4 rounded-xl border-rose-500/40 cursor-pointer hover:border-rose-500/80 hover:bg-rose-950/30 transition group select-none ring-1 ring-rose-500/20" title="Clique para filtrar apenas ERROS">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-rose-400 font-bold flex items-center gap-1">
+              <i data-lucide="x-circle" class="w-3.5 h-3.5"></i> Erros
+            </span>
+            <span class="text-[9px] text-rose-300 bg-rose-950/90 border border-rose-500/50 px-1.5 py-0.5 rounded font-bold animate-pulse">Filtrar 🔴</span>
+          </div>
           <p id="kpiWrong" class="text-2xl font-bold text-rose-400 mt-1">0</p>
         </div>
+        
         <div class="glass-panel p-4 rounded-xl border-indigo-500/20">
           <span class="text-xs text-indigo-400 font-medium flex items-center gap-1">
             <i data-lucide="percent" class="w-3.5 h-3.5"></i> Acurácia Geral
@@ -371,28 +448,48 @@
       </div>
 
       <!-- Filtros Rápidos & Busca -->
-      <div class="glass-panel p-4 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
-        <!-- Pílulas de Status -->
-        <div class="flex items-center space-x-2 w-full md:w-auto">
-          <button onclick="setQuestionFilter('all')" id="qFilterAll" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition">
-            Todas (<span id="countFilterAll">0</span>)
+      <div class="glass-panel p-4 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-4 border border-gray-800">
+        <!-- Pílulas de Status e Filtro de Erros -->
+        <div class="flex items-center flex-wrap gap-2 w-full lg:w-auto">
+          <span class="text-xs font-semibold text-gray-400 mr-1 flex items-center gap-1">
+            <i data-lucide="filter" class="w-3.5 h-3.5 text-indigo-400"></i> Filtrar:
+          </span>
+          <button onclick="setQuestionFilter('all')" id="qFilterAll" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition flex items-center gap-1.5">
+            <span>Todas</span> (<span id="countFilterAll">0</span>)
           </button>
-          <button onclick="setQuestionFilter('correct')" id="qFilterCorrect" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition">
-            🟢 Acertos (<span id="countFilterCorrect">0</span>)
+          
+          <!-- Botão Destacado de Erros -->
+          <button onclick="setQuestionFilter('wrong')" id="qFilterWrong" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-rose-950/50 text-rose-300 hover:bg-rose-900/60 border border-rose-500/50 hover:border-rose-400 transition flex items-center gap-1.5 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            <span>🔴 Somente Erros</span> (<span id="countFilterWrong">0</span>)
           </button>
-          <button onclick="setQuestionFilter('wrong')" id="qFilterWrong" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition">
-            🔴 Erros (<span id="countFilterWrong">0</span>)
+          
+          <button onclick="setQuestionFilter('correct')" id="qFilterCorrect" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 hover:border-emerald-500/40 transition flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>🟢 Somente Acertos</span> (<span id="countFilterCorrect">0</span>)
+          </button>
+          
+          <button onclick="setQuestionFilter('negation')" id="qFilterNegation" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/40 transition flex items-center gap-1.5">
+            <span>⚠️ Pegadinhas</span>
           </button>
         </div>
 
-        <div class="flex items-center space-x-3 w-full md:w-auto">
+        <div class="flex items-center space-x-3 w-full lg:w-auto">
+          <!-- Dropdown Status Select para acessibilidade -->
+          <select id="questionStatusSelect" onchange="setQuestionFilter(this.value)" class="text-xs p-2 rounded-lg bg-gray-900 border border-gray-800 text-gray-200 focus:outline-none focus:border-indigo-500">
+            <option value="all">Filtro: Todas as Questões</option>
+            <option value="wrong">🔴 Ver Somente com Erro</option>
+            <option value="correct">🟢 Ver Somente com Acerto</option>
+            <option value="negation">⚠️ Pegadinhas de Negação</option>
+          </select>
+
           <!-- Filtro de Categoria -->
           <select id="questionCategoryFilter" onchange="applyQuestionFilters()" class="text-xs p-2 rounded-lg bg-gray-900 border border-gray-800 text-gray-300 focus:outline-none focus:border-indigo-500">
             <option value="all">Todas as Disciplinas</option>
           </select>
 
           <!-- Input de Busca -->
-          <div class="relative w-full md:w-64">
+          <div class="relative w-full sm:w-60">
             <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-gray-500"></i>
             <input type="text" id="questionSearch" oninput="applyQuestionFilters()" placeholder="Buscar no enunciado..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-gray-900 border border-gray-800 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-indigo-500">
           </div>

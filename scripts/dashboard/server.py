@@ -7,8 +7,16 @@ disparo de novos testes (modo híbrido: Real e Simulação) e diagnósticos apro
 import asyncio
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +28,7 @@ from scripts.dashboard.db import (
     get_all_runs_from_db,
     get_run_by_id_from_db,
     delete_run_from_db,
+    get_dynamic_leaderboard,
     init_db
 )
 from scripts.dashboard.runner import runner_instance, RUNS_DIR
@@ -247,12 +256,102 @@ class RunRequest(BaseModel):
     limit: Optional[int] = 10
     num_fewshot: Optional[int] = 3
     is_simulation: Optional[bool] = False
+    base_url: Optional[str] = None
+    api_key: Optional[str] = None
+
+
+class TestConnectionRequest(BaseModel):
+    base_url: Optional[str] = None
+    api_key: Optional[str] = None
+    model: str = "mimo-v2.6-flash"
+    prompt: Optional[str] = "Olá! Teste de conexão rápida. Responda em uma frase curta confirmando o modelo."
+
+
+@app.get("/api/config")
+def get_system_config():
+    """Retorna as configurações padrão do ambiente (.env)."""
+    default_base_url = os.environ.get("MIMO_BASE_URL", "https://api.xiaomimimo.com/v1")
+    raw_key = os.environ.get("MIMO_API_KEY") or os.environ.get("OPENAI_API_KEY") or ""
+    key_preview = ""
+    if raw_key:
+        if len(raw_key) > 8:
+            key_preview = raw_key[:4] + "..." + raw_key[-4:]
+        else:
+            key_preview = "***"
+
+    return {
+        "default_base_url": default_base_url,
+        "default_model": "mimo-v2.6-flash",
+        "has_env_key": bool(raw_key),
+        "key_preview": key_preview
+    }
+
+
+@app.post("/api/test-connection")
+def test_connection(req: TestConnectionRequest):
+    """Executa um teste rápido de conexão à API usando base_url, api_key e model."""
+    import time
+    try:
+        from openai import OpenAI
+    except ImportError:
+        raise HTTPException(status_code=500, detail="Biblioteca 'openai' não instalada.")
+
+    # Resolução de chave
+    api_key = req.api_key or os.environ.get("MIMO_API_KEY") or os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        return {
+            "success": False,
+            "error": "Nenhuma API Key informada ou configurada nas variáveis de ambiente (.env).",
+            "model": req.model,
+            "base_url": req.base_url or "https://api.xiaomimimo.com/v1",
+            "latency_ms": 0
+        }
+
+    # Resolução de Base URL
+    base_url = req.base_url or os.environ.get("MIMO_BASE_URL") or "https://api.xiaomimimo.com/v1"
+    model = req.model or "mimo-v2.6-flash"
+
+    start_time = time.time()
+    try:
+        client = OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+            timeout=15.0
+        )
+        completion = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": "Você é um assistente prestativo para teste de conectividade rápida."},
+                {"role": "user", "content": req.prompt or "Olá! Responda em uma frase curta confirmando o modelo."}
+            ],
+            max_tokens=60,
+            temperature=0.3
+        )
+        latency_ms = round((time.time() - start_time) * 1000)
+        reply = completion.choices[0].message.content or ""
+        return {
+            "success": True,
+            "latency_ms": latency_ms,
+            "model": model,
+            "base_url": base_url,
+            "response": reply.strip()
+        }
+    except Exception as e:
+        latency_ms = round((time.time() - start_time) * 1000)
+        return {
+            "success": False,
+            "latency_ms": latency_ms,
+            "model": model,
+            "base_url": base_url,
+            "error": str(e)
+        }
 
 
 @app.get("/api/leaderboard")
 def get_leaderboard():
-    """Retorna dados de classificação comparativa dos modelos."""
-    return {"leaderboard": LEADERBOARD_DATA}
+    """Retorna dados de classificação comparativa dos modelos mesclando SQLite."""
+    dynamic_data = get_dynamic_leaderboard(LEADERBOARD_DATA)
+    return {"leaderboard": dynamic_data}
 
 
 @app.get("/api/runs")
@@ -293,7 +392,9 @@ def start_evaluation(req: RunRequest):
             tasks=req.tasks,
             limit=req.limit,
             num_fewshot=req.num_fewshot,
-            is_simulation=bool(req.is_simulation)
+            is_simulation=bool(req.is_simulation),
+            base_url=req.base_url,
+            api_key=req.api_key
         )
         return {
             "status": "started",

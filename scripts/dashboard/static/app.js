@@ -21,14 +21,232 @@ const state = {
   eventSource: null
 };
 
-function toggleCustomModelInput(val) {
+function handleModelSelectChange(val) {
+  const container = document.getElementById('customModelContainer');
   const customInput = document.getElementById('runnerCustomModel');
-  if (customInput) {
-    if (val === 'custom') {
-      customInput.classList.remove('hidden');
+  if (val === 'custom') {
+    if (container) container.classList.remove('hidden');
+    if (customInput) {
       customInput.focus();
+    }
+  } else {
+    if (container) container.classList.add('hidden');
+  }
+}
+
+function getSavedCustomModels() {
+  try {
+    const raw = localStorage.getItem('saved_custom_models');
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveManualModel(explicitName) {
+  const customInput = document.getElementById('runnerCustomModel');
+  const modelName = (explicitName || (customInput ? customInput.value : '')).trim();
+
+  if (!modelName || modelName.toLowerCase() === 'custom') {
+    alert('Por favor, digite o nome do modelo para salvar.');
+    return null;
+  }
+
+  let list = getSavedCustomModels();
+  if (!list.includes(modelName)) {
+    list.push(modelName);
+    localStorage.setItem('saved_custom_models', JSON.stringify(list));
+  }
+
+  loadSavedCustomModels(modelName);
+
+  // Seleciona o modelo recém salvo e oculta o container
+  const select = document.getElementById('runnerModel');
+  if (select) {
+    select.value = modelName;
+  }
+  const container = document.getElementById('customModelContainer');
+  if (container) container.classList.add('hidden');
+  if (customInput) customInput.value = '';
+
+  return modelName;
+}
+
+function loadSavedCustomModels(selectThisModel) {
+  const optGroup = document.getElementById('savedModelsOptGroup');
+  const countBadge = document.getElementById('savedModelsCountBadge');
+  if (!optGroup) return;
+
+  const models = getSavedCustomModels();
+  optGroup.innerHTML = '';
+
+  if (countBadge) {
+    if (models.length > 0) {
+      countBadge.classList.remove('hidden');
+      countBadge.innerText = `${models.length} salvo(s)`;
     } else {
-      customInput.classList.add('hidden');
+      countBadge.classList.add('hidden');
+    }
+  }
+
+  if (models.length === 0) {
+    const emptyOpt = document.createElement('option');
+    emptyOpt.disabled = true;
+    emptyOpt.innerText = '(Nenhum modelo customizado salvo ainda)';
+    optGroup.appendChild(emptyOpt);
+    return;
+  }
+
+  models.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.innerText = `⭐ ${m}`;
+    optGroup.appendChild(opt);
+  });
+
+  if (selectThisModel && models.includes(selectThisModel)) {
+    const select = document.getElementById('runnerModel');
+    if (select) select.value = selectThisModel;
+  }
+}
+
+async function loadSystemConfig() {
+  try {
+    loadSavedCustomModels();
+
+    const res = await fetch('/api/config');
+    const cfg = await res.json();
+    
+    // Atualiza status da chave .env
+    const badge = document.getElementById('envKeyStatusBadge');
+    if (badge) {
+      if (cfg.has_env_key) {
+        badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 font-mono';
+        badge.innerText = `Chave .env ativa (${cfg.key_preview})`;
+      } else {
+        badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-amber-950/40 text-amber-400 border border-amber-500/30';
+        badge.innerText = 'Sem chave no .env';
+      }
+    }
+
+    // Carrega do localStorage ou default
+    const savedBaseUrl = localStorage.getItem('llm_base_url');
+    const baseUrlInput = document.getElementById('configBaseUrl');
+    if (baseUrlInput) {
+      baseUrlInput.value = savedBaseUrl || cfg.default_base_url || 'https://api.xiaomimimo.com/v1';
+    }
+
+    const savedApiKey = localStorage.getItem('llm_api_key');
+    const apiKeyInput = document.getElementById('configApiKey');
+    if (apiKeyInput && savedApiKey) {
+      apiKeyInput.value = savedApiKey;
+    }
+  } catch (err) {
+    console.warn('Erro ao carregar configurações do sistema:', err);
+  }
+}
+
+function setBaseUrlPreset(url, defaultModel) {
+  const baseUrlInput = document.getElementById('configBaseUrl');
+  if (baseUrlInput) {
+    baseUrlInput.value = url;
+    localStorage.setItem('llm_base_url', url);
+  }
+  const runnerModel = document.getElementById('runnerModel');
+  if (runnerModel && defaultModel) {
+    runnerModel.value = defaultModel;
+  }
+}
+
+function toggleApiKeyVisibility() {
+  const apiKeyInput = document.getElementById('configApiKey');
+  const eyeIcon = document.getElementById('eyeIcon');
+  if (!apiKeyInput) return;
+
+  if (apiKeyInput.type === 'password') {
+    apiKeyInput.type = 'text';
+    if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye-off');
+  } else {
+    apiKeyInput.type = 'password';
+    if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye');
+  }
+  if (window.lucide) lucide.createIcons();
+}
+
+async function runQuickApiTest() {
+  const baseUrl = document.getElementById('configBaseUrl')?.value.trim();
+  const apiKey = document.getElementById('configApiKey')?.value.trim();
+  let model = document.getElementById('runnerModel')?.value || 'mimo-v2.6-flash';
+  if (model === 'custom') {
+    const custom = document.getElementById('runnerCustomModel')?.value.trim();
+    if (custom) {
+      model = saveManualModel(custom) || custom;
+    }
+  }
+
+  const btn = document.getElementById('btnQuickTest');
+  const feedback = document.getElementById('quickTestFeedback');
+
+  if (baseUrl) localStorage.setItem('llm_base_url', baseUrl);
+  if (apiKey) localStorage.setItem('llm_api_key', apiKey);
+
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="animate-spin mr-1.5">⏳</span> Testando conexão...`;
+  }
+
+  if (feedback) {
+    feedback.className = 'text-xs rounded-lg p-2.5 border bg-indigo-950/30 border-indigo-500/30 text-indigo-300';
+    feedback.innerHTML = `<span class="animate-pulse">Enviando ping para ${baseUrl || 'endpoint'} com modelo ${model}...</span>`;
+    feedback.classList.remove('hidden');
+  }
+
+  try {
+    const res = await fetch('/api/test-connection', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        base_url: baseUrl || null,
+        api_key: apiKey || null,
+        model: model,
+        prompt: 'Olá! Responda em uma frase curta confirmando o modelo.'
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      feedback.className = 'text-xs rounded-lg p-3 border bg-emerald-950/40 border-emerald-500/40 text-emerald-200 space-y-1.5';
+      feedback.innerHTML = `
+        <div class="flex items-center justify-between font-semibold text-emerald-400">
+          <span class="flex items-center gap-1.5">🟢 Conexão Estabelecida com Sucesso!</span>
+          <span class="text-[10px] bg-emerald-500/20 px-1.5 py-0.5 rounded font-mono">${data.latency_ms}ms</span>
+        </div>
+        <p class="text-[11px] text-gray-300 bg-gray-950/60 p-2 rounded border border-emerald-500/20 italic">"${escapeHtml(data.response)}"</p>
+        <div class="text-[10px] text-emerald-400/80 flex items-center justify-between">
+          <span>Modelo: <b>${data.model}</b></span>
+          <span>Endpoint: <b>${data.base_url}</b></span>
+        </div>
+      `;
+    } else {
+      feedback.className = 'text-xs rounded-lg p-3 border bg-rose-950/40 border-rose-500/40 text-rose-200 space-y-1';
+      feedback.innerHTML = `
+        <div class="flex items-center justify-between font-semibold text-rose-400">
+          <span class="flex items-center gap-1.5">🔴 Falha na Conexão</span>
+          ${data.latency_ms ? `<span class="text-[10px] bg-rose-500/20 px-1.5 py-0.5 rounded font-mono">${data.latency_ms}ms</span>` : ''}
+        </div>
+        <p class="text-[11px] text-rose-300">${escapeHtml(data.error || 'Erro desconhecido ao conectar com a API.')}</p>
+        <p class="text-[10px] text-gray-400">Verifique a API Key, a Base URL e se o modelo está liberado para sua conta.</p>
+      `;
+    }
+  } catch (err) {
+    feedback.className = 'text-xs rounded-lg p-2.5 border bg-rose-950/40 border-rose-500/40 text-rose-200';
+    feedback.innerHTML = `🔴 <b>Erro de requisição:</b> ${escapeHtml(err.message)}`;
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = `<i data-lucide="zap" class="w-3.5 h-3.5"></i><span>Testar Conexão Rápida</span>`;
+      if (window.lucide) lucide.createIcons();
     }
   }
 }
@@ -39,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
   setupEventListeners();
+  loadSystemConfig();
   loadLeaderboard();
   loadRunsList();
   checkRunnerStatus();
@@ -131,6 +350,13 @@ function renderLeaderboard(models) {
   if (!tbody) return;
   tbody.innerHTML = '';
 
+  const fmtScore = (val) => {
+    if (val !== undefined && val !== null && !isNaN(val)) {
+      return `${Number(val).toFixed(2)}%`;
+    }
+    return '<span class="text-gray-600">—</span>';
+  };
+
   models.forEach((m) => {
     const tr = document.createElement('tr');
     const isCustom = m.is_custom;
@@ -141,28 +367,60 @@ function renderLeaderboard(models) {
     if (m.rank === 2) rankBadge = `<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-slate-300/20 text-slate-300 font-bold text-xs">🥈</span>`;
     if (m.rank === 3) rankBadge = `<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-600/20 text-amber-600 font-bold text-xs">🥉</span>`;
 
+    let actionBtn = '';
+    if (isCustom && m.run_id) {
+      actionBtn = `
+        <button onclick="selectRun('${m.run_id}'); switchTab('questions');" class="ml-2 px-1.5 py-0.5 text-[9px] rounded bg-indigo-600/30 hover:bg-indigo-600/60 text-indigo-300 border border-indigo-500/40 font-semibold transition" title="Inspecionar questões desta rodada">
+          🔍 Ver Detalhes
+        </button>
+      `;
+    }
+
     tr.innerHTML = `
       <td class="py-2.5 px-3 text-center">${rankBadge}</td>
       <td class="py-2.5 px-4 font-sans">
-        <div class="flex items-center space-x-2">
-          <span class="font-semibold ${isCustom ? 'text-indigo-300' : 'text-gray-200'}">${m.model}</span>
-          ${isCustom ? '<span class="px-1.5 py-0.2 text-[9px] rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Avaliado Aqui</span>' : ''}
+        <div class="flex items-center space-x-1.5 flex-wrap">
+          <span class="font-semibold ${isCustom ? 'text-indigo-300 font-bold' : 'text-gray-200'}">${escapeHtml(m.model)}</span>
+          ${isCustom ? '<span class="px-1.5 py-0.2 text-[9px] rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Avaliado no SQLite</span>' : ''}
+          ${actionBtn}
         </div>
-        <span class="text-[10px] text-gray-500">${m.provider}</span>
+        <span class="text-[10px] text-gray-500">${escapeHtml(m.provider)}</span>
       </td>
-      <td class="py-2.5 px-3 text-right font-bold ${isCustom ? 'text-indigo-400' : 'text-emerald-400'}">${m.average.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-300">${m.enem.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-300">${m.bluex.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-300">${m.oab.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.assin2_rte.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.assin2_sts.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.faquad_nli.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.hatebr.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.pt_hate_speech.toFixed(2)}%</td>
-      <td class="py-2.5 px-3 text-right text-gray-400">${m.tweetsentbr.toFixed(2)}%</td>
+      <td class="py-2.5 px-3 text-right font-bold ${isCustom ? 'text-indigo-400 font-mono text-xs' : 'text-emerald-400'}">${m.average.toFixed(2)}%</td>
+      <td class="py-2.5 px-3 text-right text-gray-300">${fmtScore(m.enem)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-300">${fmtScore(m.bluex)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-300">${fmtScore(m.oab)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.assin2_rte)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.assin2_sts)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.faquad_nli)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.hatebr)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.pt_hate_speech)}</td>
+      <td class="py-2.5 px-3 text-right text-gray-400">${fmtScore(m.tweetsentbr)}</td>
     `;
     tbody.appendChild(tr);
   });
+
+  // Atualiza os Cards de Destaque no Topo do Leaderboard
+  if (models && models.length > 0) {
+    const leader = models[0];
+    const topName = document.getElementById('lbTopModelName');
+    const topScore = document.getElementById('lbTopModelScore');
+    if (topName) topName.innerHTML = `<i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> ${escapeHtml(leader.model)}`;
+    if (topScore) topScore.innerText = `${leader.average.toFixed(2)}% Méd.`;
+
+    const customModel = models.find(m => m.is_custom);
+    const customName = document.getElementById('lbCustomModelName');
+    const customScore = document.getElementById('lbCustomModelScore');
+    if (customName && customModel) {
+      customName.innerHTML = `<i data-lucide="zap" class="w-4 h-4 text-indigo-400"></i> ${escapeHtml(customModel.model)}`;
+      if (customScore) customScore.innerText = `${customModel.average.toFixed(2)}% (${customModel.rank}º Lugar)`;
+    }
+
+    const totalCount = document.getElementById('lbTotalModelsCount');
+    if (totalCount) totalCount.innerText = `${models.length} Modelos`;
+
+    if (window.lucide) lucide.createIcons();
+  }
 }
 
 function filterLeaderboard(query) {
@@ -179,20 +437,20 @@ function filterLeaderboard(query) {
 
 function renderRadarChart(models) {
   const canvas = document.getElementById('radarChart');
-  if (!canvas) return;
+  if (!canvas || !models || models.length === 0) return;
 
   const top1 = models.find(m => m.rank === 1) || models[0];
-  const top3 = models.find(m => m.rank === 3) || models[2];
-  const mimo = models.find(m => m.is_custom) || models[3];
+  const top3 = models.find(m => m.rank === 3) || models[2] || models[0];
+  const mimo = models.find(m => m.is_custom) || models[1] || models[0];
 
   const labels = ['ENEM', 'BlueX', 'OAB Exams', 'NLI / STS', 'Moderação'];
 
   const getScores = (m) => [
-    m.enem,
-    m.bluex,
-    m.oab,
-    (m.assin2_rte + m.faquad_nli) / 2,
-    (m.hatebr + m.pt_hate_speech) / 2
+    m.enem ?? m.average ?? 80,
+    m.bluex ?? m.average ?? 80,
+    m.oab ?? m.average ?? 80,
+    ((m.assin2_rte ?? m.average ?? 80) + (m.faquad_nli ?? m.average ?? 80)) / 2,
+    ((m.hatebr ?? m.average ?? 80) + (m.pt_hate_speech ?? m.average ?? 80)) / 2
   ];
 
   if (state.charts.radar) {
@@ -206,7 +464,7 @@ function renderRadarChart(models) {
       labels: labels,
       datasets: [
         {
-          label: 'Gemini 2.5 Pro (Líder)',
+          label: `${top1.model.substring(0, 18)} (Líder)`,
           data: getScores(top1),
           borderColor: '#f59e0b',
           backgroundColor: 'rgba(245, 158, 11, 0.15)',
@@ -214,7 +472,7 @@ function renderRadarChart(models) {
           pointRadius: 2
         },
         {
-          label: 'Claude 3.7 Sonnet',
+          label: `${top3.model.substring(0, 18)} (3º)`,
           data: getScores(top3),
           borderColor: '#a855f7',
           backgroundColor: 'rgba(168, 85, 247, 0.15)',
@@ -222,7 +480,7 @@ function renderRadarChart(models) {
           pointRadius: 2
         },
         {
-          label: 'Xiaomi MIMO v2.6 Flash',
+          label: `${mimo.model.substring(0, 18)} (Avaliado)`,
           data: getScores(mimo),
           borderColor: '#6366f1',
           backgroundColor: 'rgba(99, 102, 241, 0.25)',
@@ -236,7 +494,7 @@ function renderRadarChart(models) {
       maintainAspectRatio: false,
       scales: {
         r: {
-          min: 60,
+          min: 50,
           max: 100,
           ticks: { display: false },
           grid: { color: 'rgba(255, 255, 255, 0.08)' },
@@ -271,7 +529,7 @@ async function startEvaluationRun() {
   if (model === 'custom') {
     const customInput = document.getElementById('runnerCustomModel');
     if (customInput && customInput.value.trim()) {
-      model = customInput.value.trim();
+      model = saveManualModel(customInput.value.trim()) || customInput.value.trim();
     } else {
       alert('Por favor, informe o identificador do modelo customizado.');
       return;
@@ -296,6 +554,9 @@ async function startEvaluationRun() {
   btn.disabled = true;
   btn.innerHTML = `<span class="animate-spin inline-block mr-2">⏳</span> Iniciando ${isSimulation ? 'Simulação' : 'Avaliação'}...`;
 
+  const baseUrl = document.getElementById('configBaseUrl')?.value.trim() || null;
+  const apiKey = document.getElementById('configApiKey')?.value.trim() || null;
+
   try {
     const res = await fetch('/api/run', {
       method: 'POST',
@@ -305,7 +566,9 @@ async function startEvaluationRun() {
         tasks: tasks,
         limit: limit,
         num_fewshot: fewshot,
-        is_simulation: isSimulation
+        is_simulation: isSimulation,
+        base_url: baseUrl,
+        api_key: apiKey
       })
     });
 
@@ -339,7 +602,7 @@ function startLiveLogStream() {
       const es = new EventSource('/api/run/events');
       state.eventSource = es;
 
-      es.onmessage = (event) => {
+      es.onmessage = async (event) => {
         try {
           const status = JSON.parse(event.data);
           updateRunnerUI(status);
@@ -347,7 +610,7 @@ function startLiveLogStream() {
           if (!status.is_running && (status.progress_pct === 100 || status.progress_pct === 0)) {
             es.close();
             state.eventSource = null;
-            loadRunsList();
+            await loadRunsList(status.run_id);
           }
         } catch (e) {
           console.error('Erro ao ler SSE:', e);
@@ -383,7 +646,7 @@ async function checkRunnerStatus() {
     if (!status.is_running && state.pollingInterval) {
       clearInterval(state.pollingInterval);
       state.pollingInterval = null;
-      loadRunsList();
+      await loadRunsList(status.run_id);
     }
   } catch (err) {
     console.error('Erro ao verificar status do runner:', err);
@@ -451,7 +714,7 @@ function appendTerminalLog(msg) {
 // ============================================================================
 // CARREGAR, SELECIONAR E EXCLUIR RODADAS (RUNS)
 // ============================================================================
-async function loadRunsList() {
+async function loadRunsList(targetRunId) {
   try {
     const res = await fetch('/api/runs');
     const data = await res.json();
@@ -474,9 +737,16 @@ async function loadRunsList() {
       selector.appendChild(opt);
     });
 
-    // Se nenhuma estiver selecionada, seleciona a primeira (mais recente)
-    if (!state.activeRunId || !state.runs.some(r => r.id === state.activeRunId)) {
-      selectRun(state.runs[0].id);
+    // Se um runId específico foi fornecido, seleciona-o com prioridade
+    if (targetRunId && state.runs.some(r => r.id === targetRunId)) {
+      selector.value = targetRunId;
+      await selectRun(targetRunId);
+    } else if (!state.activeRunId || !state.runs.some(r => r.id === state.activeRunId)) {
+      selector.value = state.runs[0].id;
+      await selectRun(state.runs[0].id);
+    } else {
+      // Mantém o item ativo selecionado no dropdown
+      selector.value = state.activeRunId;
     }
   } catch (err) {
     console.error('Erro ao listar rodadas salvas:', err);
@@ -520,7 +790,25 @@ async function selectRun(runId) {
   }
 }
 
+function normalizeChoice(c, index) {
+  if (typeof c === 'string') {
+    const m = c.match(/^([A-Za-z0-9])[\)\.\:\-]\s*(.*)$/);
+    if (m) {
+      return { label: m[1].toUpperCase(), text: m[2].trim() };
+    }
+    return { label: String.fromCharCode(65 + index), text: c.trim() };
+  }
+  if (c && typeof c === 'object') {
+    return {
+      label: (c.label || String.fromCharCode(65 + index)).toString().trim().toUpperCase(),
+      text: (c.text || '').toString().trim()
+    };
+  }
+  return { label: String.fromCharCode(65 + index), text: String(c || '') };
+}
+
 function renderRunData(data) {
+  if (!data) return;
   const questions = data.questions || [];
   const diagnostics = data.diagnostics || {};
   const summary = diagnostics.summary || {
@@ -531,10 +819,14 @@ function renderRunData(data) {
   };
 
   // 1. Atualizar KPIs
-  document.getElementById('kpiTotal').innerText = summary.total;
-  document.getElementById('kpiCorrect').innerText = summary.correct;
-  document.getElementById('kpiWrong').innerText = summary.wrong;
-  document.getElementById('kpiAccuracy').innerText = `${summary.accuracy.toFixed(1)}%`;
+  const kTotal = document.getElementById('kpiTotal');
+  const kCorr = document.getElementById('kpiCorrect');
+  const kWrong = document.getElementById('kpiWrong');
+  const kAcc = document.getElementById('kpiAccuracy');
+  if (kTotal) kTotal.innerText = summary.total;
+  if (kCorr) kCorr.innerText = summary.correct;
+  if (kWrong) kWrong.innerText = summary.wrong;
+  if (kAcc) kAcc.innerText = `${summary.accuracy.toFixed(1)}%`;
 
   // Badges nas abas
   const badgeQ = document.getElementById('tabBadgeQuestions');
@@ -543,16 +835,47 @@ function renderRunData(data) {
   if (badgeS) badgeS.innerText = (diagnostics.suggestions || []).length;
 
   // 2. Preencher opções do dropdown de categoria
-  populateCategoryFilter(questions);
+  try {
+    populateCategoryFilter(questions);
+  } catch (e) {
+    console.error('Erro em populateCategoryFilter:', e);
+  }
 
   // 3. Renderizar Lista de Questões
-  applyQuestionFilters();
+  try {
+    applyQuestionFilters();
+  } catch (e) {
+    console.error('Erro em applyQuestionFilters:', e);
+  }
 
   // 4. Renderizar Categorias & Gráfico
-  renderCategoriesView(diagnostics.categories || []);
+  try {
+    let cats = diagnostics.categories || [];
+    if ((!cats || cats.length === 0) && questions.length > 0) {
+      const catMap = {};
+      questions.forEach(q => {
+        const cat = q.category || 'Geral';
+        if (!catMap[cat]) catMap[cat] = { category: cat, total: 0, correct: 0, wrong: 0, accuracy: 0 };
+        catMap[cat].total++;
+        if (q.is_correct) catMap[cat].correct++;
+        else catMap[cat].wrong++;
+      });
+      cats = Object.values(catMap).map(c => {
+        c.accuracy = c.total > 0 ? (c.correct / c.total) * 100 : 0;
+        return c;
+      });
+    }
+    renderCategoriesView(cats);
+  } catch (e) {
+    console.error('Erro em renderCategoriesView:', e);
+  }
 
   // 5. Renderizar Sugestões
-  renderSuggestionsView(diagnostics.suggestions || []);
+  try {
+    renderSuggestionsView(diagnostics.suggestions || []);
+  } catch (e) {
+    console.error('Erro em renderSuggestionsView:', e);
+  }
 }
 
 // ============================================================================
@@ -574,17 +897,61 @@ function populateCategoryFilter(questions) {
 
 function setQuestionFilter(status) {
   state.questionFilter = status;
-  const filters = ['all', 'correct', 'wrong'];
-  filters.forEach(f => {
-    const btn = document.getElementById(`qFilter${capitalize(f)}`);
-    if (btn) {
-      if (f === status) {
-        btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition';
-      } else {
-        btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition';
-      }
-    }
-  });
+
+  // 1. Atualizar Estilos dos Botões de Filtro
+  const btnAll = document.getElementById('qFilterAll');
+  const btnWrong = document.getElementById('qFilterWrong');
+  const btnCorrect = document.getElementById('qFilterCorrect');
+  const btnNegation = document.getElementById('qFilterNegation');
+
+  if (btnAll) {
+    btnAll.className = (status === 'all')
+      ? 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-md transition flex items-center gap-1.5'
+      : 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 transition flex items-center gap-1.5';
+  }
+
+  if (btnWrong) {
+    btnWrong.className = (status === 'wrong')
+      ? 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-rose-600 text-white shadow-lg shadow-rose-600/30 border border-rose-500 transition flex items-center gap-1.5'
+      : 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-rose-950/40 text-rose-300 hover:bg-rose-900/60 border border-rose-500/40 hover:border-rose-500 transition flex items-center gap-1.5 shadow-sm';
+  }
+
+  if (btnCorrect) {
+    btnCorrect.className = (status === 'correct')
+      ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 border border-emerald-500 transition flex items-center gap-1.5'
+      : 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 hover:border-emerald-500/40 transition flex items-center gap-1.5';
+  }
+
+  if (btnNegation) {
+    btnNegation.className = (status === 'negation')
+      ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-600 text-white shadow-lg shadow-amber-600/30 border border-amber-500 transition flex items-center gap-1.5'
+      : 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-900 text-gray-300 hover:bg-gray-800 border border-gray-800 hover:border-amber-500/40 transition flex items-center gap-1.5';
+  }
+
+  // 2. Destacar visualmente o KPI Card correspondente
+  const kpiTotal = document.getElementById('kpiCardTotal');
+  const kpiWrong = document.getElementById('kpiCardWrong');
+  const kpiCorrect = document.getElementById('kpiCardCorrect');
+
+  if (kpiTotal) {
+    if (status === 'all') kpiTotal.classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-950/40');
+    else kpiTotal.classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-950/40');
+  }
+  if (kpiWrong) {
+    if (status === 'wrong') kpiWrong.classList.add('ring-2', 'ring-rose-500', 'bg-rose-950/50');
+    else kpiWrong.classList.remove('ring-2', 'ring-rose-500', 'bg-rose-950/50');
+  }
+  if (kpiCorrect) {
+    if (status === 'correct') kpiCorrect.classList.add('ring-2', 'ring-emerald-500', 'bg-emerald-950/50');
+    else kpiCorrect.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-950/50');
+  }
+
+  // 3. Sincronizar Dropdown de Status
+  const statusSelect = document.getElementById('questionStatusSelect');
+  if (statusSelect && statusSelect.value !== status) {
+    statusSelect.value = status;
+  }
+
   applyQuestionFilters();
 }
 
@@ -594,28 +961,37 @@ function applyQuestionFilters() {
 
   // Contadores nos botões de filtro
   const totalCount = allQuestions.length;
-  const correctCount = allQuestions.filter(q => q.is_correct).length;
+  const correctCount = allQuestions.filter(q => (q.is_correct === true || q.is_correct === 1 || q.is_correct === 'true')).length;
   const wrongCount = totalCount - correctCount;
 
-  document.getElementById('countFilterAll').innerText = totalCount;
-  document.getElementById('countFilterCorrect').innerText = correctCount;
-  document.getElementById('countFilterWrong').innerText = wrongCount;
+  const cAll = document.getElementById('countFilterAll');
+  const cCorr = document.getElementById('countFilterCorrect');
+  const cWrong = document.getElementById('countFilterWrong');
+  if (cAll) cAll.innerText = totalCount;
+  if (cCorr) cCorr.innerText = correctCount;
+  if (cWrong) cWrong.innerText = wrongCount;
 
-  const categoryFilter = document.getElementById('questionCategoryFilter').value;
-  const searchTerm = (document.getElementById('questionSearch').value || '').toLowerCase().trim();
+  const categoryFilter = document.getElementById('questionCategoryFilter') ? document.getElementById('questionCategoryFilter').value : 'all';
+  const searchTerm = (document.getElementById('questionSearch') ? document.getElementById('questionSearch').value : '').toLowerCase().trim();
 
   const filtered = allQuestions.filter(q => {
+    const isCorr = (q.is_correct === true || q.is_correct === 1 || q.is_correct === 'true');
+
     // Filtro por status
-    if (state.questionFilter === 'correct' && !q.is_correct) return false;
-    if (state.questionFilter === 'wrong' && q.is_correct) return false;
+    if (state.questionFilter === 'correct' && !isCorr) return false;
+    if (state.questionFilter === 'wrong' && isCorr) return false;
+    if (state.questionFilter === 'negation' && !q.has_negation) return false;
 
     // Filtro por categoria
     if (categoryFilter !== 'all' && q.category !== categoryFilter) return false;
 
     // Filtro de busca textual
     if (searchTerm) {
-      const matchText = q.question.toLowerCase().includes(searchTerm);
-      const matchChoices = (q.choices || []).some(c => c.text.toLowerCase().includes(searchTerm));
+      const matchText = (q.question || '').toLowerCase().includes(searchTerm);
+      const matchChoices = (q.choices || []).some((c, cIdx) => {
+        const norm = normalizeChoice(c, cIdx);
+        return norm.text.toLowerCase().includes(searchTerm) || norm.label.toLowerCase().includes(searchTerm);
+      });
       const matchId = (q.id || '').toLowerCase().includes(searchTerm);
       if (!matchText && !matchChoices && !matchId) return false;
     }
@@ -632,20 +1008,37 @@ function renderQuestionsList(questions) {
   container.innerHTML = '';
 
   if (questions.length === 0) {
-    container.innerHTML = `
-      <div class="glass-panel p-8 rounded-2xl text-center text-gray-400">
-        <i data-lucide="inbox" class="w-8 h-8 mx-auto mb-2 text-gray-600"></i>
-        <p class="text-sm">Nenhuma questão encontrada para os filtros selecionados.</p>
-      </div>
-    `;
+    if (state.questionFilter === 'wrong') {
+      container.innerHTML = `
+        <div class="glass-panel p-8 rounded-2xl text-center text-gray-300 border border-emerald-500/30 bg-emerald-950/10">
+          <i data-lucide="award" class="w-10 h-10 mx-auto mb-2 text-emerald-400"></i>
+          <h4 class="font-bold text-white text-base mb-1">Nenhum Erro Encontrado!</h4>
+          <p class="text-xs text-emerald-300/80 mb-3">O modelo acertou 100% das questões analisadas sob os filtros atuais.</p>
+          <button onclick="setQuestionFilter('all')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition">
+            Ver Todas as Questões (${(state.activeRunData.questions || []).length})
+          </button>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="glass-panel p-8 rounded-2xl text-center text-gray-400">
+          <i data-lucide="inbox" class="w-8 h-8 mx-auto mb-2 text-gray-600"></i>
+          <p class="text-sm">Nenhuma questão encontrada para os filtros selecionados.</p>
+        </div>
+      `;
+    }
     if (window.lucide) lucide.createIcons();
     return;
   }
 
   questions.forEach((q, idx) => {
     const card = document.createElement('div');
-    const isCorrect = q.is_correct;
+    const isCorrect = Boolean(q.is_correct);
     card.className = `glass-panel p-5 rounded-2xl border ${isCorrect ? 'border-emerald-500/20' : 'border-rose-500/20'} space-y-4 hover:border-gray-700 transition`;
+
+    const modelAnswer = (q.model_answer || q.model_choice || '').toString().trim().toUpperCase();
+    const goldAnswer = (q.gold_answer || q.gold || '').toString().trim().toUpperCase();
+    const qIndex = (typeof q.index === 'number') ? q.index + 1 : idx + 1;
 
     // Badges de cabeçalho
     let statusPill = isCorrect
@@ -663,9 +1056,10 @@ function renderQuestionsList(questions) {
       : '';
 
     // Render das Alternativas
-    const choicesHtml = (q.choices || []).map(c => {
-      const isModelChoice = (c.label.toUpperCase() === (q.model_answer || '').toUpperCase());
-      const isGoldChoice = (c.label.toUpperCase() === (q.gold_answer || '').toUpperCase());
+    const choicesHtml = (q.choices || []).map((c, cIdx) => {
+      const norm = normalizeChoice(c, cIdx);
+      const isModelChoice = (norm.label === modelAnswer);
+      const isGoldChoice = (norm.label === goldAnswer);
 
       let choiceStyle = 'bg-gray-900/50 border-gray-800 text-gray-300';
       let tagHtml = '';
@@ -684,9 +1078,9 @@ function renderQuestionsList(questions) {
       return `
         <div class="flex items-start space-x-3 p-2.5 rounded-xl border ${choiceStyle} text-xs transition">
           <span class="w-5 h-5 rounded-lg flex items-center justify-center font-bold text-xs bg-gray-800 text-gray-200 shrink-0 mt-0.5">
-            ${c.label}
+            ${norm.label}
           </span>
-          <span class="flex-1 leading-relaxed">${escapeHtml(c.text)}</span>
+          <span class="flex-1 leading-relaxed">${escapeHtml(norm.text)}</span>
           ${tagHtml}
         </div>
       `;
@@ -696,13 +1090,13 @@ function renderQuestionsList(questions) {
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800/80 pb-3">
         <div class="flex items-center space-x-2 flex-wrap gap-y-1">
           <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
-            #${q.index + 1} (${q.id})
+            #${qIndex} (${q.id || 'q' + qIndex})
           </span>
           <span class="text-xs text-gray-300 font-medium bg-gray-800 px-2 py-0.5 rounded">
-            ${q.task}
+            ${q.task || 'Tarefa'}
           </span>
           <span class="text-xs text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
-            ${q.category}
+            ${q.category || 'Geral'}
           </span>
           ${negationPill}
         </div>
@@ -710,8 +1104,8 @@ function renderQuestionsList(questions) {
       </div>
 
       <!-- Enunciado -->
-      <div class="text-sm text-gray-200 leading-relaxed font-sans">
-        ${escapeHtml(q.question)}
+      <div class="text-sm text-gray-200 leading-relaxed font-sans whitespace-pre-line">
+        ${escapeHtml(q.question || '')}
       </div>
 
       <!-- Alternativas -->
@@ -723,12 +1117,12 @@ function renderQuestionsList(questions) {
       <div class="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-gray-800/60">
         <div>
           <span>Escolha do Modelo: </span>
-          <strong class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${q.model_answer || 'N/A'}</strong>
+          <strong class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${modelAnswer || 'N/A'}</strong>
           <span class="mx-2">•</span>
           <span>Gabarito: </span>
-          <strong class="text-emerald-400">${q.gold_answer || 'N/A'}</strong>
+          <strong class="text-emerald-400">${goldAnswer || 'N/A'}</strong>
         </div>
-        <span class="text-[11px] text-gray-500">${q.word_count || 0} palavras</span>
+        <span class="text-[11px] text-gray-500">${q.word_count || (q.question ? q.question.split(' ').length : 0)} palavras</span>
       </div>
     `;
 
@@ -752,7 +1146,7 @@ function renderCategoriesView(categories) {
       const tr = document.createElement('tr');
       tr.className = 'hover:bg-gray-800/40 transition';
       tr.innerHTML = `
-        <td class="py-2 px-3 font-sans text-gray-200">${c.category}</td>
+        <td class="py-2 px-3 font-sans text-gray-200">${escapeHtml(c.category)}</td>
         <td class="py-2 px-2 text-center text-gray-400">${c.total}</td>
         <td class="py-2 px-2 text-center text-emerald-400 font-semibold">${c.correct}</td>
         <td class="py-2 px-2 text-center text-rose-400 font-semibold">${c.wrong}</td>
@@ -775,53 +1169,60 @@ function renderCategoriesView(categories) {
 
   if (state.charts.categories) {
     state.charts.categories.destroy();
+    state.charts.categories = null;
   }
+
+  if (categories.length === 0) return;
 
   const ctx = canvas.getContext('2d');
   const labels = categories.map(c => c.category);
   const data = categories.map(c => c.accuracy);
 
-  state.charts.categories = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Acurácia (%)',
-        data: data,
-        backgroundColor: data.map(val => val >= 70 ? 'rgba(16, 185, 129, 0.7)' : 'rgba(245, 158, 11, 0.7)'),
-        borderColor: data.map(val => val >= 70 ? '#10b981' : '#f59e0b'),
-        borderWidth: 1,
-        borderRadius: 6
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {
-          min: 0,
-          max: 100,
-          grid: { color: 'rgba(255, 255, 255, 0.06)' },
-          ticks: { color: '#9ca3af', font: { size: 10, family: 'Inter' } }
-        },
-        y: {
-          grid: { display: false },
-          ticks: {
-            color: '#e5e7eb',
-            font: { size: 10, family: 'Inter' },
-            callback: function(val) {
-              const str = this.getLabelForValue(val);
-              return str.length > 25 ? str.substring(0, 25) + '...' : str;
+  try {
+    state.charts.categories = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Acurácia (%)',
+          data: data,
+          backgroundColor: data.map(val => val >= 70 ? 'rgba(16, 185, 129, 0.7)' : 'rgba(245, 158, 11, 0.7)'),
+          borderColor: data.map(val => val >= 70 ? '#10b981' : '#f59e0b'),
+          borderWidth: 1,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            min: 0,
+            max: 100,
+            grid: { color: 'rgba(255, 255, 255, 0.06)' },
+            ticks: { color: '#9ca3af', font: { size: 10, family: 'Inter' } }
+          },
+          y: {
+            grid: { display: false },
+            ticks: {
+              color: '#e5e7eb',
+              font: { size: 10, family: 'Inter' },
+              callback: function(val) {
+                const str = this.getLabelForValue(val);
+                return str.length > 25 ? str.substring(0, 25) + '...' : str;
+              }
             }
           }
+        },
+        plugins: {
+          legend: { display: false }
         }
-      },
-      plugins: {
-        legend: { display: false }
       }
-    }
-  });
+    });
+  } catch (chartErr) {
+    console.warn('Erro ao criar categoriesBarChart:', chartErr);
+  }
 }
 
 // ============================================================================
